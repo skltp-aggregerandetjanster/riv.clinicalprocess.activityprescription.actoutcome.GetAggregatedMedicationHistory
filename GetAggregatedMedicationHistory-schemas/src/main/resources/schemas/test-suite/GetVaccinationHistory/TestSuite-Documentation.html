@@ -1,0 +1,272 @@
+<!DOCTYPE html><html>
+<head>
+<meta charset="UTF-8"/>
+<title>TestSuite description GetVaccinationHistory</title>
+<style>
+                    body {
+                        font-family: sans-serif;
+                        width: 800px;
+                        margin: 16px;
+                        counter-reset: section
+                    }
+                    p {
+                        margin: 0.2em;
+                    }
+                    h1 {
+                        counter-reset: sub-section;
+                        margin-bottom: 5px;
+                    }
+                    h2 {
+                        counter-reset: composite;
+                        margin-bottom: 5px;
+                    }
+                    h3 {
+                        counter-reset: detail;
+                        margin-bottom: 5px;
+                    }
+
+                    h1:before{
+                        counter-increment: section;
+                        content: counter(section) " ";
+                    }
+                    h2:before{
+                        counter-increment: sub-section;
+                        content: counter(section) "." counter(sub-section) " ";
+                    }
+                    h3:before{
+                        counter-increment: composite;
+                        content: counter(section) "." counter(sub-section) "." counter(composite) " ";
+                    }
+                    h4:before{
+                        counter-increment: detail;
+                        content: counter(section) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";
+                    }
+                </style>
+</head>
+<body>
+<section>
+<h1>TestSuite description GetVaccinationHistory</h1>
+<summary>
+<p>This document describes the testcases used to verify the implementation of GetVaccinationHistory
+                        prior to integration with the national platform.</p>
+</summary>
+<article>
+<h2>Tools</h2>
+<h3>SoapUI</h3>
+                        The testsuite uses SoapUI to verify the implementation. Documentation of SoapUI can be found at <a href="http://www.soapui.org" target="_blank">http://www.soapui.org</a>
+<br/>
+                        Link to download site: <a href="http://sourceforge.net/projects/soapui/files/soapui/" target="_blank">http://sourceforge.net/projects/soapui/files/soapui/</a>
+<br/>
+                        Install SoapUI according to the documentation.
+
+                        <h3>Setup instructions</h3>
+<ol>
+<li>Locate the test-suite/[contractName]-directory in your distribution.</li>
+<li>Copy the jar-file ‘soapui-support.jar’ to &lt;SoapUI install dir&gt;/bin/ext</li>
+<li>Open SoapUI and import the SoapUI project from the above directory, choose ‘Import Project’ from the File-menu.</li>
+<li>If your WebService endpoint requires a SSL Certificate, this can be configured from the Preferences (in the File menu). In the Preferences window  open the ‘SSL Settings’ tab and import the Keystore containing the Client Certificate.</li>
+<li>Update test-data in data.xml to match the contents in your system.</li>
+<li>You should now be able to run the test suite!</li>
+</ol>
+</article>
+<h2>Testcase description</h2>
+<article>
+<h3>Date Boundaries</h3>
+<p>Verifies that the result only contains information within the date boundaries for the given patient.<br>
+            This test will require at least eight VaccinationMedicalRecords:
+            <ol>
+                <li>A record with DocumentTime within the given range, the AuthorTime and SignatureTime should
+                    before or after the given range.</li>
+                <li>A record with AuthorTime within the given range, the DocumentTime and SignatureTime should
+                    before or after the given range.</li>
+                <li>A record with SignatureTime within the given range, the DocumentTime and AuthorTime should
+                    before or after the given range.</li>
+                <li>A record with DocumentTime and AuthorTime within the given range, the SignatureTime should
+                    before or after the given range.</li>
+                <li>A record with DocumentTime and SignatureTime within the given range, the AuthorTime should
+                    before or after the given range.</li>
+                <li>A record with SignatureTime and AuthorTime within the given range, the DocumentTime should
+                    before or after the given range.</li>
+                <li>A record with SignatureTime, DocumentTime and AuthorTime within the given range.</li>
+                <li>A record with SignatureTime, DocumentTime and AuthorTime outside the given range.</li>
+            </ol>
+            The DocumentId's of case 1-7 should be added as a comma-separated list in the
+                expectedDocumentIds field.<br>
+            The DocumentId's of case 8 should be added in the unexpectedDocumentIds field.<br>
+            The fields httpHeaderHsaId and logicalAddress should contain values that does not affect the list of VaccinationMedicalRecords.
+        </p>
+<details>
+<summary>Variables used</summary>
+<ul>
+<li>httpHeaderHsaId</li>
+<li>logicalAddress</li>
+<li>patientId</li>
+<li>patientIdType</li>
+<li>timePeriodStart</li>
+<li>timePeriodEnd</li>
+<li>expectedDocumentIds</li>
+<li>unexpectedDocumentIds</li>
+</ul>
+</details>
+</article>
+<article>
+<h3>CareUnitHsaId Filter</h3>
+<p>Verifies that the result only contains information with correct CareUnitHsaId for the given patient.<br>
+            The patient should have several VaccinationMedicalRecords, with at least one record from the given CareUnitHsaId.<br>
+            The DocumentId's of the expected VaccinationMedicalRecords should be added as a comma-separated list in the
+            expectedDocumentIds field.<br>
+            The DocumentId's of VaccinationMedicalRecords from other CareUnit's should be added as a comma-separated list in the
+            unexpectedDocumentIds field.<br>
+            The fields httpHeaderHsaId and logicalAddress should contain values that does not affect the list of VaccinationMedicalRecords.
+        </p>
+<details>
+<summary>Variables used</summary>
+<ul>
+<li>httpHeaderHsaId</li>
+<li>logicalAddress</li>
+<li>careUnitHSAid</li>
+<li>patientId</li>
+<li>patientIdType</li>
+<li>sourceSystemHSAid</li>
+<li>expectedDocumentIds</li>
+<li>unexpectedDocumentIds</li>
+</ul>
+</details>
+</article>
+<article>
+<h3>Only PatientId</h3>
+<p>Verifies that the result only contains information with correct PatientId.<br>
+            Enter a PatientId that is stored in the source system.<br>
+            The DocumentId's of the expected VaccinationMedicalRecords should be added as a comma-separated list in the
+            expectedDocumentIds field.<br>
+            The DocumentId's of VaccinationMedicalRecords from other CareUnit's should be added as a comma-separated list in the
+            unexpectedDocumentIds field.<br>
+            The fields httpHeaderHsaId and logicalAddress should contain values that does not affect the list of VaccinationMedicalRecords.
+        </p>
+<details>
+<summary>Variables used</summary>
+<ul>
+<li>httpHeaderHsaId</li>
+<li>logicalAddress</li>
+<li>patientId</li>
+<li>patientIdType</li>
+<li>expectedDocumentIds</li>
+<li>unexpectedDocumentIds</li>
+</ul>
+</details>
+</article>
+<article>
+<h3>NonExisting PatientId</h3>
+<p>Verifies that the service returns an empty result instead of a Soap Fault if a non-existing PatientId is given.<br>
+            Enter a PatientId that is not found in the source system.
+        </p>
+<details>
+<summary>Variables used</summary>
+<ul>
+<li>httpHeaderHsaId</li>
+<li>logicalAddress</li>
+<li>patientId</li>
+<li>patientIdType</li>
+</ul>
+</details>
+</article>
+<article>
+<h3>CareContactId Filter</h3>
+<p>Verifies that the result only contains information for a single CareContact.<br>
+            Enter a PatientId, CareContactId and SourceSystemHSAid that is stored in the source system.<br>
+            The fields httpHeaderHsaId and logicalAddress should contain values that does not affect the list of VaccinationMedicalRecords.
+        </p>
+<details>
+<summary>Variables used</summary>
+<ul>
+<li>httpHeaderHsaId</li>
+<li>logicalAddress</li>
+<li>patientId</li>
+<li>patientIdType</li>
+<li>careContactId</li>
+<li>sourceSystemHSAid</li>
+</ul>
+</details>
+</article>
+<article>
+<h3>NonExisting CareContactId</h3>
+<p>Verifies that the service returns an empty result instead of a Soap Fault if a non-existing
+            CareContactId is given.<br>
+            Enter a PatientId that exists in the source system and a CareContactId and sourceSystemHSAid that is not found in the source system.<br>
+            The fields httpHeaderHsaId and logicalAddress should contain values that does not affect the list of VaccinationMedicalRecords.
+        </p>
+<details>
+<summary>Variables used</summary>
+<ul>
+<li>httpHeaderHsaId</li>
+<li>logicalAddress</li>
+<li>patientId</li>
+<li>patientIdType</li>
+<li>careContactId</li>
+<li>sourceSystemHSAid</li>
+</ul>
+</details>
+</article>
+<article>
+<h3>Http-header Filter</h3>
+<p>Verifies that the result only contains information with correct PatientId, and that the source
+            system should filter VaccinationMedicalRecords based on the HttpHeader 'x-rivta-original-serviceconsumer-hsaid'.<br>
+            Enter a PatientId that has more than one VaccinationMedicalRecord in the source system.<br>
+            Add one or more DocumentId's of records that should be included in the response based on the
+            filtering rules to the field 'expectedDocumentIds'.<br>
+            Add one or more DocumentId's of records that should not be included in the response based on the
+            filtering rules to the field 'unexpectedDocumentIds'.<br>
+            The field logicalAddress should contain a value that does not affect the list of CareContacts.
+        </p>
+<details>
+<summary>Variables used</summary>
+<ul>
+<li>httpHeaderHsaId</li>
+<li>logicalAddress</li>
+<li>patientId</li>
+<li>patientIdType</li>
+<li>expectedDocumentIds</li>
+<li>unexpectedDocumentIds</li>
+</ul>
+</details>
+</article>
+<article>
+<h3>CareContactId and SourceSystemHsaId</h3>
+<p>The test verifies that the source system returns a Soap Fault if the sourceSystemHSAid
+            is empty when careContactId has a value.<br>
+            Enter a PatientId and a CareContactId of a CareContact that should be found in the source system.<br>
+            The fields httpHeaderHsaId and logicalAddress should contain values that does not affect the list of CareContacts.</p>
+<details>
+<summary>Variables used</summary>
+<ul>
+<li>httpHeaderHsaId</li>
+<li>logicalAddress</li>
+<li>patientId</li>
+<li>patientIdType</li>
+<li>careContactId</li>
+</ul>
+</details>
+</article>
+<article>
+<h3>SourceSystemHsaId and LogicalAddress</h3>
+<p>The test verifies that the source system returns a Soap Fault if the logicalAddress and
+            sourceSystemHSAid doesn't match.<br>
+            Enter a PatientId and a CareContactId and the correct SourceSystemHSAid of a CareContact that should be found in the source system.<br>
+            The field logicalAddress should not match SourceSystemHSAid.<br>
+            The field httpHeaderHsaId should contain a value that does not affect the list of records.</p>
+<details>
+<summary>Variables used</summary>
+<ul>
+<li>httpHeaderHsaId</li>
+<li>logicalAddress</li>
+<li>careUnitHSAid</li>
+<li>patientId</li>
+<li>patientIdType</li>
+<li>careContactId</li>
+<li>sourceSystemHSAid</li>
+</ul>
+</details>
+</article>
+</section>
+</body>
+</html>

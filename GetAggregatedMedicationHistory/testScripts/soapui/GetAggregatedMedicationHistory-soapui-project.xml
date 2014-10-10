@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="GetAggregatedMedicationHistory" resourceRoot="" soapui-version="4.6.4" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="GetMedicationHistoryResponderBinding" type="wsdl" bindingName="{urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21}GetMedicationHistoryResponderBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8081/GetAggregatedMedicationHistory/service/v2?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8081/GetAggregatedMedicationHistory/service/v2?wsdl"><con:part><con:url>http://localhost:8081/GetAggregatedMedicationHistory/service/v2?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="GetMedicationHistoryInteraction" targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21" xmlns:itr="urn:riv:itintegration:registry:1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tjsi="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryInitiator:2" xmlns:tjsr="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:tns="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21">
+      <xs:import namespace="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" schemaLocation="http://localhost:8081/GetAggregatedMedicationHistory/service/v2?xsd=GetMedicationHistoryResponder_2.0.xsd"/>
+      <xs:import namespace="urn:riv:itintegration:registry:1" schemaLocation="http://localhost:8081/GetAggregatedMedicationHistory/service/v2?xsd=../../core_components/itintegration_registry_1.0.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMedicationHistoryResponse">
+    <wsdl:part element="tjsr:GetMedicationHistoryResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetMedicationHistoryRequest">
+    <wsdl:part element="itr:LogicalAddress" name="LogicalAddress">
+      <wsdl:documentation/>
+    </wsdl:part>
+    <wsdl:part element="tjsr:GetMedicationHistory" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GetMedicationHistoryResponderInterface">
+    <wsdl:operation name="GetMedicationHistory">
+      <wsdl:input message="tns:GetMedicationHistoryRequest"></wsdl:input>
+      <wsdl:output message="tns:GetMedicationHistoryResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetMedicationHistoryResponderBinding" type="tns:GetMedicationHistoryResponderInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetMedicationHistory">
+      <soap:operation soapAction="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:1:GetMedicationHistory" style="document"/>
+      <wsdl:input>
+        <soap:header message="tns:GetMedicationHistoryRequest" part="LogicalAddress" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetMedicationHistoryResponderService">
+    <wsdl:port binding="tns:GetMedicationHistoryResponderBinding" name="GetMedicationHistoryResponderPort">
+      <soap:address location="http://localhost:8081/GetAggregatedMedicationHistory/service/v2"/>
+    </wsdl:port>
+  </wsdl:service>
+  <xs:annotation>
+    <xs:documentation>Tjänsteinteraktionens namn: GetMedicationHistoryInteraction
+			 Beskrivning: 
+			   
+			 Revisioner: 
+			 Tjänstedomän: activityprescription:actoutcome
+			 Tjänsteinteraktionstyp: Fråga-Svar
+			 WS-profil: RIVTABP21
+			 Förvaltas av: Inera</xs:documentation>
+  </xs:annotation>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8081/GetAggregatedMedicationHistory/service/v2?xsd=GetMedicationHistoryResponder_2.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" version="1.0" xmlns:codes="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2" xmlns:core="urn:riv:clinicalprocess:activityprescription:actoutcome:2" xmlns:tns="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="urn:riv:clinicalprocess:activityprescription:actoutcome:2" schemaLocation="http://localhost:8081/GetAggregatedMedicationHistory/service/v2?xsd=../../core_components/clinicalprocess_activityprescription_actoutcome_2.0.xsd"/>
+  <xs:import namespace="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2" schemaLocation="http://localhost:8081/GetAggregatedMedicationHistory/service/v2?xsd=../../core_components/clinicalprocess_activityprescription_actoutcome_enum_2.0.xsd"/>
+  <xs:element name="GetMedicationHistory" type="tns:GetMedicationHistoryType"/>
+  <xs:element name="GetMedicationHistoryResponse" type="tns:GetMedicationHistoryResponseType"/>
+  <xs:complexType name="GetMedicationHistoryType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="careUnitHSAId" type="core:HSAIdType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="careGiverHSAId" type="core:HSAIdType"/>
+      <xs:element name="patientId" type="core:PersonIdType"/>
+      <xs:element minOccurs="0" name="datePeriod" type="core:DatePeriodType"/>
+      <xs:element minOccurs="0" name="sourceSystemHSAId" type="core:HSAIdType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="careContactId" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="prescriptionChainId" type="core:IIType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="prescriptionStatus" type="codes:PrescriptionStatusEnum"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetMedicationHistoryResponseType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="medicationMedicalRecord" type="core:MedicationMedicalRecordType"/>
+      <xs:element minOccurs="1" name="result" type="core:ResultType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8081/GetAggregatedMedicationHistory/service/v2?xsd=../../core_components/clinicalprocess_activityprescription_actoutcome_2.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:2" version="1.0" xmlns:codes="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2" xmlns:tns="urn:riv:clinicalprocess:activityprescription:actoutcome:2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2" schemaLocation="http://localhost:8081/GetAggregatedMedicationHistory/service/v2?xsd=./clinicalprocess_activityprescription_actoutcome_enum_2.0.xsd"/>
+  <xs:complexType name="VaccinationMedicalRecordType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="vaccinationMedicalRecordHeader" type="tns:PatientSummaryHeaderType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vaccinationMedicalRecordBody" type="tns:VaccinationMedicalRecordBodyType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="relation" type="tns:RelationType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VaccinationMedicalRecordBodyType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="registrationRecord" type="tns:RegistrationRecordType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="administrationRecord" type="tns:AdministrationRecordType"/>
+      <xs:element minOccurs="0" name="additionalPatientInformation" type="tns:AdditionalPatientInformationType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegistrationRecordType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="careGiverOrg" type="tns:OrgUnitType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="careGiverContact" type="tns:ActorType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="sourceSystemName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="sourceSystemProductName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="sourceSystemProductVersion" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="sourceSystemContact" type="tns:ActorType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="careUnitSmiId" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="date" type="tns:DateType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="patientPostalCode" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vaccinationUnstructuredNote" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="riskCategory" type="tns:CVType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="patientAdverseEffect" type="tns:CVType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdministrationRecordType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="vaccinationProgramName" type="tns:CVType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="prescriberOrg" type="tns:OrgUnitType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="prescriberPerson" type="tns:ActorType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="performerOrg" type="tns:OrgUnitType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="performer" type="tns:ActorType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="anatomicalSite" type="tns:CVType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="route" type="tns:CVType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dose" type="tns:DoseType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="isDoseComplete" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="doseOrdinalNumber" type="xs:integer"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numberOfPrescribedDoses" type="xs:integer"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="sourceDescription" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="commentPrescription" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="commentAdministration" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="patientAdverseEffect" type="tns:CVType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="typeOfVaccine" type="tns:CVType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vaccineName" type="tns:CVType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vaccineBatchId" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vaccineManufacturer" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="vaccineTargetDisease" type="tns:CVType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vaccinationUniqueReference" type="tns:IIType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HealthcareProfessionalType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="authorTime" type="tns:TimeStampType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="healthcareProfessionalHSAId" type="tns:HSAIdType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="healthcareProfessionalName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="healthcareProfessionalRoleCode" type="tns:CVType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="healthcareProfessionalOrgUnit" type="tns:OrgUnitType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="healthcareProfessionalCareUnitHSAId" type="tns:HSAIdType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="healthcareProfessionalCareGiverHSAId" type="tns:HSAIdType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IIType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="root" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="extension" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="HSAIdType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <!--YYYYMMDD-->
+  <xs:simpleType name="DateType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DatePeriodType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="start" type="tns:DateType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="end" type="tns:DateType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TimeStampType">
+    <xs:annotation>
+      <xs:documentation>A quantity specifying a point on the axis of natural time. A point in time
+        is most often represented as a calendar expression. The time has the format YYYYMMDDhhmmss</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(0[0-9]|1[0-9]|2[0123])([0-5])([0-9])([0-5])([0-9])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PersonIdType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="id" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="type" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PQType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:double"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="unit" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LegalAuthenticatorType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="signatureTime" type="tns:TimeStampType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="legalAuthenticatorHSAId" type="tns:HSAIdType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="legalAuthenticatorName" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PatientSummaryHeaderType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="documentId" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="sourceSystemHSAId" type="tns:HSAIdType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="documentTitle" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="documentTime" type="tns:TimeStampType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="patientId" type="tns:PersonIdType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="accountableHealthcareProfessional" type="tns:HealthcareProfessionalType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="legalAuthenticator" type="tns:LegalAuthenticatorType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="approvedForPatient" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="careContactId" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="nullified" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="nullifiedReason" type="xs:boolean"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrgUnitType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="orgUnitHSAId" type="tns:HSAIdType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="orgUnitName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="orgUnitTelecom" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="orgUnitEmail" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="orgUnitAddress" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="orgUnitLocation" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ActorType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="hsaid" type="tns:HSAIdType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="personName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="personEmail" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="personTelecom" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="personAddress" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CVType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="code" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codeSystem" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codeSystemName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="codeSystemVersion" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="displayName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="originalText" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DoseType">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="quantity" type="tns:PQType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="displayName" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="resultCode" type="codes:ResultCodeEnum"/>
+      <xs:element minOccurs="0" name="errorCode" type="codes:ErrorCodeEnum"/>
+      <xs:element name="logId" type="xs:string"/>
+      <xs:element minOccurs="0" name="subCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RelationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="tns:CVType"/>
+      <xs:element minOccurs="1" name="referredInformation" type="tns:ReferredInformationType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferredInformationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="tns:IIType"/>
+      <xs:element minOccurs="1" name="time" type="tns:TimeStampType"/>
+      <xs:element minOccurs="1" name="uri" type="xs:anyURI"/>
+      <xs:element minOccurs="1" name="informationOwner" type="tns:InformationOwnerType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InformationOwnerType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="tns:IIType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MedicationMedicalRecordType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="medicationMedicalRecordHeader" type="tns:PatientSummaryHeaderType"/>
+      <xs:element minOccurs="1" name="medicationMedicalRecordBody" type="tns:MedicationMedicalRecordBodyType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="relation" type="tns:RelationType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MedicationMedicalRecordBodyType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="medicationPrescription" type="tns:MedicationPrescriptionType"/>
+      <xs:element minOccurs="0" name="additionalPatientInformation" type="tns:AdditionalPatientInformationType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MedicationPrescriptionType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="prescriptionId" type="tns:IIType"/>
+      <xs:element name="typeOfPrescription" type="codes:TypeOfPrescriptionEnum"/>
+      <xs:element minOccurs="1" name="prescriptionStatus" type="tns:CVType"/>
+      <xs:element minOccurs="0" name="prescriptionNote" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="principalPrescriptionReason" type="tns:PrescriptionReasonType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalPrescriptionReason" type="tns:PrescriptionReasonType"/>
+      <xs:element minOccurs="0" name="evaluationTime" type="tns:TimeStampType"/>
+      <xs:element minOccurs="0" name="treatmentPurpose" type="xs:string"/>
+      <xs:element minOccurs="0" name="prescriptionChainId" type="tns:IIType"/>
+      <xs:element minOccurs="0" name="precedingPrescriptionId" type="tns:IIType"/>
+      <xs:element minOccurs="0" name="succeedingPrescriptionId" type="tns:IIType"/>
+      <xs:element minOccurs="0" name="prescriber" type="tns:HealthcareProfessionalType"/>
+      <xs:element minOccurs="0" name="evaluator" type="tns:HealthcareProfessionalType"/>
+      <xs:element minOccurs="0" name="startOfFirstTreatment" type="tns:TimeStampType"/>
+      <xs:element minOccurs="0" name="startOfTreatment" type="tns:TimeStampType"/>
+      <xs:element minOccurs="0" name="endOfTreatment" type="tns:TimeStampType"/>
+      <xs:element minOccurs="0" name="endOfTreatmentReason" type="tns:CVType"/>
+      <xs:element name="selfMedication" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="drug" type="tns:DrugChoiceType"/>
+      <xs:element minOccurs="0" name="dispensationAuthorization" type="tns:DispensationAuthorizationType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="administration" type="tns:AdministrationType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PrescriptionReasonType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="reason" type="tns:CVType"/>
+      <xs:element minOccurs="0" name="otherReason" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GenericsType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="substance" type="xs:string"/>
+      <xs:element minOccurs="0" name="strength" type="tns:PQType"/>
+      <xs:element minOccurs="0" name="form" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DispensationAuthorizationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dispensationAuthorizationId" type="tns:IIType"/>
+      <xs:element minOccurs="0" name="validUntil" type="tns:DateType"/>
+      <xs:element minOccurs="0" name="receivingPharmacy" type="tns:IIType"/>
+      <xs:element minOccurs="0" name="minimumDispensationInterval" type="tns:PQType"/>
+      <xs:element minOccurs="0" name="totalAmount" type="xs:double"/>
+      <xs:element minOccurs="0" name="packageUnit" type="xs:string"/>
+      <xs:element minOccurs="0" name="distributionMethod" type="xs:string"/>
+      <xs:element name="dispensationAuthorizer" type="tns:HealthcareProfessionalType"/>
+      <xs:element minOccurs="0" name="dispensationAuthorizerComment" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstDispensationBefore" type="tns:DateType"/>
+      <xs:element name="prescriptionSignatura" type="xs:string"/>
+      <xs:element minOccurs="0" name="nonReplaceable" type="codes:NonReplaceableEnum"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdministrationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="administrationId" type="tns:IIType"/>
+      <xs:element name="administrationTime" type="tns:TimePeriodType"/>
+      <xs:element minOccurs="0" name="administrationComment" type="xs:string"/>
+      <xs:element minOccurs="0" name="routeOfAdministration" type="tns:CVType"/>
+      <xs:element name="administeringHealthcareProfessional" type="tns:HealthcareProfessionalType"/>
+      <xs:element minOccurs="0" name="drug" type="tns:DrugChoiceType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DrugType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="nplId" type="tns:CVType"/>
+      <xs:element minOccurs="0" name="atcCode" type="tns:CVType"/>
+      <xs:element minOccurs="0" name="routeOfAdministration" type="tns:CVType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lengthOfTreatment" type="tns:PQIntervalType"/>
+      <xs:element minOccurs="0" name="isMaximumTreatmentTime" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="dosageInstruction" type="xs:string"/>
+      <xs:element minOccurs="0" name="unitDose" type="tns:CVType"/>
+      <xs:element minOccurs="0" name="shortNotation" type="xs:string"/>
+      <xs:element minOccurs="0" name="setDosage" type="tns:SetDosageType"/>
+      <xs:element minOccurs="0" name="maximumDosage" type="tns:MaximumDosageType"/>
+      <xs:element minOccurs="0" name="conditionalDosage" type="tns:ConditionalDosageType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SetDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="frequencyDosage" type="tns:FrequencyDosageType"/>
+      <xs:element minOccurs="0" name="periodDosage" type="tns:PeriodDosageType"/>
+      <xs:element minOccurs="0" name="occasionDosage" type="tns:OccasionDosageType"/>
+      <xs:element minOccurs="0" name="rampedDosage" type="tns:RampedDosageType"/>
+      <xs:element minOccurs="0" name="singleDose" type="tns:SingleDoseType"/>
+      <xs:element minOccurs="0" name="unstructuredDosageInformation" type="tns:UnstructuredDosageInformationType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MaximumDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="frequencyDosage" type="tns:FrequencyDosageType"/>
+      <xs:element minOccurs="0" name="periodDosage" type="tns:PeriodDosageType"/>
+      <xs:element minOccurs="0" name="occasionDosage" type="tns:OccasionDosageType"/>
+      <xs:element minOccurs="0" name="rampedDosage" type="tns:RampedDosageType"/>
+      <xs:element minOccurs="0" name="singleDose" type="tns:SingleDoseType"/>
+      <xs:element minOccurs="0" name="unstructuredDosageInformation" type="tns:UnstructuredDosageInformationType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConditionalDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="conditionDescription" type="xs:string"/>
+      <xs:element minOccurs="0" name="frequencyDosage" type="tns:FrequencyDosageType"/>
+      <xs:element minOccurs="0" name="periodDosage" type="tns:PeriodDosageType"/>
+      <xs:element minOccurs="0" name="occasionDosage" type="tns:OccasionDosageType"/>
+      <xs:element minOccurs="0" name="rampedDosage" type="tns:RampedDosageType"/>
+      <xs:element minOccurs="0" name="singleDose" type="tns:SingleDoseType"/>
+      <xs:element minOccurs="0" name="unstructuredDosageInformation" type="tns:UnstructuredDosageInformationType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FrequencyDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="dose" type="tns:PQIntervalType"/>
+      <xs:element minOccurs="1" name="frequency" type="tns:PQType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SingleDoseType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="dose" type="tns:PQIntervalType"/>
+      <xs:element minOccurs="0" name="time" type="tns:TimeStampType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UnstructuredDosageInformationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="text" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RampedDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="doseStep" type="tns:PQType"/>
+      <xs:element minOccurs="1" name="timeStep" type="tns:PQType"/>
+      <xs:element name="rampStart" type="tns:RampEndpointType"/>
+      <xs:element name="rampStart" type="tns:RampEndpointType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RampEndpointType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="frequencyDosage" type="tns:FrequencyDosageType"/>
+      <xs:element minOccurs="0" name="periodDosage" type="tns:PeriodDosageType"/>
+      <xs:element minOccurs="0" name="occasionDosage" type="tns:OccasionDosageType"/>
+      <xs:element minOccurs="0" name="singleDose" type="tns:SingleDoseType"/>
+      <xs:element minOccurs="0" name="unstructuredDosageInformation" type="tns:UnstructuredDosageInformationType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PeriodDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="dose" type="tns:PQIntervalType"/>
+      <xs:element minOccurs="1" name="period" type="tns:PQType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OccasionDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="period" type="tns:PQType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="administration" type="tns:AdministrationOccurrenceType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdministrationOccurrenceType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="dose" type="tns:PQIntervalType"/>
+      <xs:element minOccurs="0" name="time" type="xs:string"/>
+      <xs:element name="dayOfPeriod" type="xs:int"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DrugChoiceType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="comment" type="xs:string"/>
+      <xs:element minOccurs="0" name="unstructuredDrugInformation" type="tns:UnstructuredDrugInformationType"/>
+      <xs:element minOccurs="0" name="merchandise" type="tns:MerchandiseType"/>
+      <xs:element minOccurs="0" name="drugArticle" type="tns:DrugArticleType"/>
+      <xs:element minOccurs="0" name="drug" type="tns:DrugType"/>
+      <xs:element minOccurs="0" name="generics" type="tns:GenericsType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="dosage" type="tns:DosageType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UnstructuredDrugInformationType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="unstructuredInformation" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MerchandiseType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="articleNumber" type="tns:CVType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DrugArticleType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nplPackId" type="tns:CVType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UnstructuredInformationType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="articleNumber" type="tns:CVType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdditionalPatientInformationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dateOfBirth" type="tns:DateType"/>
+      <xs:element minOccurs="0" name="gender" type="tns:CVType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PQIntervalType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="low" type="xs:double"/>
+      <xs:element minOccurs="0" name="high" type="xs:double"/>
+      <xs:element minOccurs="1" name="unit" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TimePeriodType">
+    <xs:annotation>
+      <xs:documentation>Används för att specificera ett datumintervall
+        med hjälp av start- och slutdatum.
+        
+        start:
+        Startdatum på formatet YYYYMMDDhhmmss
+        end:
+        Slutdatum på formatet YYYYMMDDhhmmss</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="tns:TimeStampType"/>
+      <xs:element minOccurs="0" name="end" type="tns:TimeStampType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8081/GetAggregatedMedicationHistory/service/v2?xsd=./clinicalprocess_activityprescription_actoutcome_enum_2.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2" version="1.0" xmlns:tns="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ResultCodeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="ERROR"/>
+      <xs:enumeration value="INFO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ErrorCodeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INVALID_REQUEST"/>
+      <xs:enumeration value="TRANSFORMATION_ERROR"/>
+      <xs:enumeration value="APPLICATION_ERROR"/>
+      <xs:enumeration value="TECHNICAL_ERROR"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NonReplaceableEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Prescriber"/>
+      <xs:enumeration value="Patient"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeOfPrescriptionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Insättning"/>
+      <xs:enumeration value="Utsättning"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrescriptionStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active"/>
+      <xs:enumeration value="Inactive"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8081/GetAggregatedMedicationHistory/service/v2?xsd=../../core_components/clinicalprocess_activityprescription_actoutcome_enum_2.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2" version="1.0" xmlns:tns="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ResultCodeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="ERROR"/>
+      <xs:enumeration value="INFO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ErrorCodeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INVALID_REQUEST"/>
+      <xs:enumeration value="TRANSFORMATION_ERROR"/>
+      <xs:enumeration value="APPLICATION_ERROR"/>
+      <xs:enumeration value="TECHNICAL_ERROR"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NonReplaceableEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Prescriber"/>
+      <xs:enumeration value="Patient"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeOfPrescriptionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Insättning"/>
+      <xs:enumeration value="Utsättning"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrescriptionStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active"/>
+      <xs:enumeration value="Inactive"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8081/GetAggregatedMedicationHistory/service/v2?xsd=../../core_components/itintegration_registry_1.0.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="urn:riv:itintegration:registry:1" version="1.0" xmlns="urn:riv:itintegration:registry:1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>Beskrivning: 	Grundl��ggande informationsobjekt f��r dom��nen itintegration:registry (adressering av tj��nster)
+			
+			Revisionshistorik: 2011-06-27 Mats Ekhammar, Callista Enterprise AB
+				Added ServiceContractType
+			
+			Datum:			2011-05-04
+			Beskrivning:	Initial version
+			F��rfattare:		marcus.krantz@callistaenterprise.se</xs:documentation>
+  </xs:annotation>
+  <xs:element name="LogicalAddress" type="LogicalAddressType"/>
+  <xs:element name="ServiceContract" type="ServiceContractType"/>
+  <xs:simpleType name="LogicalAddressType">
+    <xs:annotation>
+      <xs:documentation>Defines the type for logical address according to national reference architecture.
+				Superseeds wsa:To as type for logical address header in RIVTA 2.1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:complexType name="ServiceContractType">
+    <xs:annotation>
+      <xs:documentation>Type which describes a service contract. Used in interaction GetSupportedServiceContracts.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ServiceContractNamespace" type="xs:anyURI"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8081/GetAggregatedMedicationHistory/service/v2</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:1:GetMedicationHistory" name="GetMedicationHistory" bindingOperationName="GetMedicationHistory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="TEST"/>
+  &lt;con:entry key="x-vp-sender-id" value="TEST"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/GetAggregatedMedicationHistory/service/v2</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>?</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetMedicationHistory>
+         <!--Zero or more repetitions:-->
+         <urn1:careUnitHSAId>?</urn1:careUnitHSAId>
+         <!--Zero or more repetitions:-->
+         <urn1:careGiverHSAId>?</urn1:careGiverHSAId>
+         <urn1:patientId>
+            <urn2:id>?</urn2:id>
+            <urn2:type>?</urn2:type>
+            <!--You may enter ANY elements at this point-->
+         </urn1:patientId>
+         <!--Optional:-->
+         <urn1:datePeriod>
+            <!--Optional:-->
+            <urn2:start>?</urn2:start>
+            <!--Optional:-->
+            <urn2:end>?</urn2:end>
+            <!--You may enter ANY elements at this point-->
+         </urn1:datePeriod>
+         <!--Optional:-->
+         <urn1:sourceSystemHSAId>?</urn1:sourceSystemHSAId>
+         <!--Zero or more repetitions:-->
+         <urn1:careContactId>?</urn1:careContactId>
+         <!--Zero or more repetitions:-->
+         <urn1:prescriptionChainId>
+            <urn2:root>?</urn2:root>
+            <!--Optional:-->
+            <urn2:extension>?</urn2:extension>
+            <!--You may enter ANY elements at this point-->
+         </urn1:prescriptionChainId>
+         <!--Optional:-->
+         <urn1:prescriptionStatus>?</urn1:prescriptionStatus>
+         <!--You may enter ANY elements at this point-->
+      </urn1:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:1:GetMedicationHistory"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

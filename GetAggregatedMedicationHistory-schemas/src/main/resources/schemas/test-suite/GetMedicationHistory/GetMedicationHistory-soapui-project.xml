@@ -1,0 +1,1673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="GetMedicationHistory" resourceRoot="${projectDir}" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" id="15562024-58a0-483a-98e0-fbcce00c1c54" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="GetMedicationHistoryResponderBinding" type="wsdl" bindingName="{urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21}GetMedicationHistoryResponderBinding" soapVersion="1_1" anonymous="optional" definition="../../schemas/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryInteraction_2.0_RIVTABP21.wsdl" id="0281db31-7b57-4aaf-bce9-0152186d9716" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/khaleddaham/NetBeansProjects/rivta/ServiceInteractions/riv/clinicalprocess/activityprescription/actoutcome/trunk/schemas/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryInteraction_2.0_RIVTABP21.wsdl"><con:part><con:url>file:/Users/khaleddaham/NetBeansProjects/rivta/ServiceInteractions/riv/clinicalprocess/activityprescription/actoutcome/trunk/schemas/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryInteraction_2.0_RIVTABP21.wsdl</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<wsdl:definitions name="GetMedicationHistoryInteraction" targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tjsr="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:tjsi="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryInitiator:2" xmlns:tns="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21" xmlns:itr="urn:riv:itintegration:registry:1">
+  <xs:annotation>
+    <xs:documentation>Tjänsteinteraktionens namn: GetMedicationHistoryInteraction
+			 Beskrivning: 
+			   
+			 Revisioner: 
+			 Tjänstedomän: activityprescription:actoutcome
+			 Tjänsteinteraktionstyp: Fråga-Svar
+			 WS-profil: RIVTABP21
+			 Förvaltas av: Inera</xs:documentation>
+  </xs:annotation>
+  <wsdl:types>
+    <xs:schema targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21">
+      <xs:import schemaLocation="GetMedicationHistoryResponder_2.0.xsd" namespace="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2"/>
+      <xs:import schemaLocation="../../core_components/itintegration_registry_1.0.xsd" namespace="urn:riv:itintegration:registry:1"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMedicationHistoryRequest">
+    <wsdl:part name="LogicalAddress" element="itr:LogicalAddress">
+      <wsdl:documentation/>
+    </wsdl:part>
+    <wsdl:part name="parameters" element="tjsr:GetMedicationHistory"/>
+  </wsdl:message>
+  <wsdl:message name="GetMedicationHistoryResponse">
+    <wsdl:part name="parameters" element="tjsr:GetMedicationHistoryResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="GetMedicationHistoryResponderInterface">
+    <wsdl:operation name="GetMedicationHistory">
+      <wsdl:input message="tns:GetMedicationHistoryRequest"/>
+      <wsdl:output message="tns:GetMedicationHistoryResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetMedicationHistoryResponderBinding" type="tns:GetMedicationHistoryResponderInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetMedicationHistory">
+      <soap:operation soapAction="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:1:GetMedicationHistory" style="document"/>
+      <wsdl:input>
+        <soap:header use="literal" message="tns:GetMedicationHistoryRequest" part="LogicalAddress"/>
+        <soap:body use="literal" parts="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetMedicationHistoryResponderService">
+    <wsdl:port name="GetMedicationHistoryResponderPort" binding="tns:GetMedicationHistoryResponderBinding">
+      <soap:address location="http://tempuri.org"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/Users/khaleddaham/NetBeansProjects/rivta/ServiceInteractions/riv/clinicalprocess/activityprescription/actoutcome/trunk/schemas/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryResponder_2.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:codes="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2" xmlns:core="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+  <xs:import schemaLocation="../../core_components/clinicalprocess_activityprescription_actoutcome_2.0.xsd" namespace="urn:riv:clinicalprocess:activityprescription:actoutcome:2"/>
+  <xs:import schemaLocation="../../core_components/clinicalprocess_activityprescription_actoutcome_enum_2.0.xsd" namespace="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2"/>
+  <xs:element name="GetMedicationHistory" type="tns:GetMedicationHistoryType"/>
+  <xs:element name="GetMedicationHistoryResponse" type="tns:GetMedicationHistoryResponseType"/>
+  <xs:complexType name="GetMedicationHistoryType">
+    <xs:sequence>
+      <xs:element name="careUnitHSAId" type="core:HSAIdType" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="careGiverHSAId" type="core:HSAIdType"/>
+      <xs:element name="patientId" type="core:PersonIdType"/>
+      <xs:element name="datePeriod" type="core:DatePeriodType" minOccurs="0"/>
+      <xs:element name="sourceSystemHSAId" type="core:HSAIdType" minOccurs="0"/>
+      <xs:element name="careContactId" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="prescriptionChainId" type="core:IIType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="prescriptionStatus" type="codes:PrescriptionStatusEnum"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetMedicationHistoryResponseType">
+    <xs:sequence>
+      <xs:element name="medicationMedicalRecord" type="core:MedicationMedicalRecordType" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="result" type="core:ResultType" minOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/Users/khaleddaham/NetBeansProjects/rivta/ServiceInteractions/riv/clinicalprocess/activityprescription/actoutcome/trunk/schemas/core_components/clinicalprocess_activityprescription_actoutcome_2.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:riv:clinicalprocess:activityprescription:actoutcome:2" xmlns:codes="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2">
+  <xs:import schemaLocation="./clinicalprocess_activityprescription_actoutcome_enum_2.0.xsd" namespace="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2"/>
+  <xs:complexType name="VaccinationMedicalRecordType">
+    <xs:sequence>
+      <xs:element name="vaccinationMedicalRecordHeader" type="tns:PatientSummaryHeaderType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="vaccinationMedicalRecordBody" type="tns:VaccinationMedicalRecordBodyType" minOccurs="1" maxOccurs="1"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="relation" type="tns:RelationType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VaccinationMedicalRecordBodyType">
+    <xs:sequence>
+      <xs:element name="registrationRecord" type="tns:RegistrationRecordType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="administrationRecord" type="tns:AdministrationRecordType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element minOccurs="0" name="additionalPatientInformation" type="tns:AdditionalPatientInformationType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegistrationRecordType">
+    <xs:sequence>
+      <xs:element name="careGiverOrg" type="tns:OrgUnitType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="careGiverContact" type="tns:ActorType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="sourceSystemName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="sourceSystemProductName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="sourceSystemProductVersion" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="sourceSystemContact" type="tns:ActorType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="careUnitSmiId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="date" type="tns:DateType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="patientPostalCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vaccinationUnstructuredNote" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="riskCategory" type="tns:CVType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="patientAdverseEffect" type="tns:CVType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdministrationRecordType">
+    <xs:sequence>
+      <xs:element name="vaccinationProgramName" type="tns:CVType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriberOrg" type="tns:OrgUnitType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriberPerson" type="tns:ActorType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="performerOrg" type="tns:OrgUnitType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="performer" type="tns:ActorType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="anatomicalSite" type="tns:CVType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="route" type="tns:CVType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="dose" type="tns:DoseType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="isDoseComplete" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="doseOrdinalNumber" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="numberOfPrescribedDoses" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="sourceDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="commentPrescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="commentAdministration" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="patientAdverseEffect" type="tns:CVType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="typeOfVaccine" type="tns:CVType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vaccineName" type="tns:CVType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vaccineBatchId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vaccineManufacturer" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="vaccineTargetDisease" type="tns:CVType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="vaccinationUniqueReference" type="tns:IIType" minOccurs="0" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HealthcareProfessionalType">
+    <xs:sequence>
+      <xs:element name="authorTime" type="tns:TimeStampType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="healthcareProfessionalHSAId" type="tns:HSAIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="healthcareProfessionalName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="healthcareProfessionalRoleCode" type="tns:CVType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="healthcareProfessionalOrgUnit" type="tns:OrgUnitType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="healthcareProfessionalCareUnitHSAId" type="tns:HSAIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="healthcareProfessionalCareGiverHSAId" type="tns:HSAIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IIType">
+    <xs:sequence>
+      <xs:element name="root" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="extension" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="HSAIdType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <!--YYYYMMDD-->
+  <xs:simpleType name="DateType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DatePeriodType">
+    <xs:sequence>
+      <xs:element name="start" type="tns:DateType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="end" type="tns:DateType" minOccurs="0" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TimeStampType">
+    <xs:annotation>
+      <xs:documentation>A quantity specifying a point on the axis of natural time. A point in time
+        is most often represented as a calendar expression. The time has the format YYYYMMDDhhmmss</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(0[0-9]|1[0-9]|2[0123])([0-5])([0-9])([0-5])([0-9])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PersonIdType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PQType">
+    <xs:sequence>
+      <xs:element name="value" type="xs:double" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="unit" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LegalAuthenticatorType">
+    <xs:sequence>
+      <xs:element name="signatureTime" type="tns:TimeStampType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="legalAuthenticatorHSAId" type="tns:HSAIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="legalAuthenticatorName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PatientSummaryHeaderType">
+    <xs:sequence>
+      <xs:element name="documentId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="sourceSystemHSAId" type="tns:HSAIdType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="documentTitle" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="documentTime" type="tns:TimeStampType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="patientId" type="tns:PersonIdType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="accountableHealthcareProfessional" type="tns:HealthcareProfessionalType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="legalAuthenticator" type="tns:LegalAuthenticatorType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="approvedForPatient" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="careContactId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="nullified" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="nullifiedReason" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrgUnitType">
+    <xs:sequence>
+      <xs:element name="orgUnitHSAId" type="tns:HSAIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="orgUnitName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="orgUnitTelecom" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="orgUnitEmail" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="orgUnitAddress" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="orgUnitLocation" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ActorType">
+    <xs:sequence>
+      <xs:element name="hsaid" type="tns:HSAIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="personName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="personEmail" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="personTelecom" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="personAddress" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CVType">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="codeSystem" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="codeSystemName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="codeSystemVersion" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="displayName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="originalText" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DoseType">
+    <xs:sequence>
+      <xs:element name="quantity" type="tns:PQType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="displayName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="resultCode" type="codes:ResultCodeEnum"/>
+      <xs:element name="errorCode" type="codes:ErrorCodeEnum" minOccurs="0"/>
+      <xs:element name="logId" type="xs:string"/>
+      <xs:element minOccurs="0" name="subCode" type="xs:string"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RelationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="tns:CVType"/>
+      <xs:element name="referredInformation" type="tns:ReferredInformationType" minOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferredInformationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="tns:IIType"/>
+      <xs:element name="time" type="tns:TimeStampType" minOccurs="1"/>
+      <xs:element name="uri" type="xs:anyURI" minOccurs="1"/>
+      <xs:element name="informationOwner" type="tns:InformationOwnerType" minOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InformationOwnerType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="tns:IIType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MedicationMedicalRecordType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="medicationMedicalRecordHeader" type="tns:PatientSummaryHeaderType"/>
+      <xs:element name="medicationMedicalRecordBody" type="tns:MedicationMedicalRecordBodyType" minOccurs="1"/>
+      <xs:element name="relation" type="tns:RelationType" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MedicationMedicalRecordBodyType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="medicationPrescription" type="tns:MedicationPrescriptionType" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="additionalPatientInformation" type="tns:AdditionalPatientInformationType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MedicationPrescriptionType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="prescriptionId" type="tns:IIType"/>
+      <xs:element name="typeOfPrescription" type="codes:TypeOfPrescriptionEnum"/>
+      <xs:element name="prescriptionStatus" type="tns:CVType" minOccurs="1"/>
+      <xs:element name="prescriptionNote" type="xs:string" minOccurs="0"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="principalPrescriptionReason" type="tns:PrescriptionReasonType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalPrescriptionReason" type="tns:PrescriptionReasonType"/>
+      <xs:element name="evaluationTime" type="tns:TimeStampType" minOccurs="0"/>
+      <xs:element name="treatmentPurpose" type="xs:string" minOccurs="0"/>
+      <xs:element name="prescriptionChainId" type="tns:IIType" minOccurs="0"/>
+      <xs:element name="precedingPrescriptionId" type="tns:IIType" minOccurs="0"/>
+      <xs:element name="succeedingPrescriptionId" type="tns:IIType" minOccurs="0"/>
+      <xs:element name="prescriber" type="tns:HealthcareProfessionalType" minOccurs="0"/>
+      <xs:element minOccurs="0" name="evaluator" type="tns:HealthcareProfessionalType"/>
+      <xs:element name="startOfFirstTreatment" type="tns:TimeStampType" minOccurs="0"/>
+      <xs:element name="startOfTreatment" type="tns:TimeStampType" minOccurs="0"/>
+      <xs:element name="endOfTreatment" type="tns:TimeStampType" minOccurs="0"/>
+      <xs:element name="endOfTreatmentReason" type="tns:CVType" minOccurs="0"/>
+      <xs:element name="selfMedication" type="xs:boolean"/>
+      <xs:element name="drug" type="tns:DrugChoiceType" minOccurs="0"/>
+      <xs:element name="dispensationAuthorization" type="tns:DispensationAuthorizationType" minOccurs="0"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="administration" type="tns:AdministrationType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PrescriptionReasonType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="reason" type="tns:CVType" minOccurs="1"/>
+      <xs:element name="otherReason" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GenericsType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="substance" type="xs:string" minOccurs="0"/>
+      <xs:element name="strength" type="tns:PQType" minOccurs="0"/>
+      <xs:element name="form" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DispensationAuthorizationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dispensationAuthorizationId" type="tns:IIType"/>
+      <xs:element name="validUntil" type="tns:DateType" minOccurs="0"/>
+      <xs:element name="receivingPharmacy" type="tns:IIType" minOccurs="0"/>
+      <xs:element name="minimumDispensationInterval" type="tns:PQType" minOccurs="0"/>
+      <xs:element name="totalAmount" type="xs:double" minOccurs="0"/>
+      <xs:element name="packageUnit" type="xs:string" minOccurs="0"/>
+      <xs:element name="distributionMethod" type="xs:string" minOccurs="0"/>
+      <xs:element name="dispensationAuthorizer" type="tns:HealthcareProfessionalType"/>
+      <xs:element name="dispensationAuthorizerComment" type="xs:string" minOccurs="0"/>
+      <xs:element name="firstDispensationBefore" type="tns:DateType" minOccurs="0"/>
+      <xs:element name="prescriptionSignatura" type="xs:string"/>
+      <xs:element name="nonReplaceable" type="codes:NonReplaceableEnum" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdministrationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="administrationId" type="tns:IIType"/>
+      <xs:element name="administrationTime" type="tns:TimePeriodType"/>
+      <xs:element name="administrationComment" type="xs:string" minOccurs="0"/>
+      <xs:element minOccurs="0" name="routeOfAdministration" type="tns:CVType"/>
+      <xs:element name="administeringHealthcareProfessional" type="tns:HealthcareProfessionalType"/>
+      <xs:element minOccurs="0" name="drug" type="tns:DrugChoiceType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DrugType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nplId" type="tns:CVType" minOccurs="1"/>
+      <xs:element name="atcCode" type="tns:CVType" minOccurs="0"/>
+      <xs:element name="routeOfAdministration" type="tns:CVType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="lengthOfTreatment" type="tns:PQIntervalType" minOccurs="0"/>
+      <xs:element name="isMaximumTreatmentTime" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="dosageInstruction" type="xs:string" minOccurs="0"/>
+      <xs:element name="unitDose" type="tns:CVType" minOccurs="0"/>
+      <xs:element name="shortNotation" type="xs:string" minOccurs="0"/>
+      <xs:element name="setDosage" type="tns:SetDosageType" minOccurs="0"/>
+      <xs:element name="maximumDosage" type="tns:MaximumDosageType" minOccurs="0"/>
+      <xs:element name="conditionalDosage" type="tns:ConditionalDosageType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SetDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="frequencyDosage" type="tns:FrequencyDosageType" minOccurs="0"/>
+      <xs:element name="periodDosage" type="tns:PeriodDosageType" minOccurs="0"/>
+      <xs:element name="occasionDosage" type="tns:OccasionDosageType" minOccurs="0"/>
+      <xs:element name="rampedDosage" type="tns:RampedDosageType" minOccurs="0"/>
+      <xs:element name="singleDose" type="tns:SingleDoseType" minOccurs="0"/>
+      <xs:element name="unstructuredDosageInformation" type="tns:UnstructuredDosageInformationType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MaximumDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="frequencyDosage" type="tns:FrequencyDosageType" minOccurs="0"/>
+      <xs:element name="periodDosage" type="tns:PeriodDosageType" minOccurs="0"/>
+      <xs:element name="occasionDosage" type="tns:OccasionDosageType" minOccurs="0"/>
+      <xs:element name="rampedDosage" type="tns:RampedDosageType" minOccurs="0"/>
+      <xs:element name="singleDose" type="tns:SingleDoseType" minOccurs="0"/>
+      <xs:element name="unstructuredDosageInformation" type="tns:UnstructuredDosageInformationType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConditionalDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="conditionDescription" type="xs:string"/>
+      <xs:element name="frequencyDosage" type="tns:FrequencyDosageType" minOccurs="0"/>
+      <xs:element name="periodDosage" type="tns:PeriodDosageType" minOccurs="0"/>
+      <xs:element name="occasionDosage" type="tns:OccasionDosageType" minOccurs="0"/>
+      <xs:element name="rampedDosage" type="tns:RampedDosageType" minOccurs="0"/>
+      <xs:element name="singleDose" type="tns:SingleDoseType" minOccurs="0"/>
+      <xs:element name="unstructuredDosageInformation" type="tns:UnstructuredDosageInformationType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FrequencyDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dose" type="tns:PQIntervalType" minOccurs="1"/>
+      <xs:element name="frequency" type="tns:PQType" minOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SingleDoseType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dose" type="tns:PQIntervalType" minOccurs="1"/>
+      <xs:element name="time" type="tns:TimeStampType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UnstructuredDosageInformationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="text" type="xs:string" minOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RampedDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="doseStep" type="tns:PQType" minOccurs="1"/>
+      <xs:element name="timeStep" type="tns:PQType" minOccurs="1"/>
+      <xs:element name="rampStart" type="tns:RampEndpointType"/>
+      <xs:element name="rampStart" type="tns:RampEndpointType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RampEndpointType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="frequencyDosage" type="tns:FrequencyDosageType" minOccurs="0"/>
+      <xs:element name="periodDosage" type="tns:PeriodDosageType" minOccurs="0"/>
+      <xs:element name="occasionDosage" type="tns:OccasionDosageType" minOccurs="0"/>
+      <xs:element name="singleDose" type="tns:SingleDoseType" minOccurs="0"/>
+      <xs:element name="unstructuredDosageInformation" type="tns:UnstructuredDosageInformationType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PeriodDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dose" type="tns:PQIntervalType" minOccurs="1"/>
+      <xs:element name="period" type="tns:PQType" minOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OccasionDosageType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="period" type="tns:PQType" minOccurs="1"/>
+      <xs:element name="administration" type="tns:AdministrationOccurrenceType" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdministrationOccurrenceType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dose" type="tns:PQIntervalType" minOccurs="1"/>
+      <xs:element name="time" type="xs:string" minOccurs="0"/>
+      <xs:element name="dayOfPeriod" type="xs:int"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DrugChoiceType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="comment" type="xs:string" minOccurs="0"/>
+      <xs:element name="unstructuredDrugInformation" type="tns:UnstructuredDrugInformationType" minOccurs="0"/>
+      <xs:element name="merchandise" type="tns:MerchandiseType" minOccurs="0"/>
+      <xs:element name="drugArticle" type="tns:DrugArticleType" minOccurs="0"/>
+      <xs:element minOccurs="0" name="drug" type="tns:DrugType"/>
+      <xs:element name="generics" type="tns:GenericsType" minOccurs="0"/>
+      <xs:element name="dosage" type="tns:DosageType" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UnstructuredDrugInformationType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="unstructuredInformation" type="xs:string"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MerchandiseType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="articleNumber" type="tns:CVType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DrugArticleType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nplPackId" type="tns:CVType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UnstructuredInformationType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="articleNumber" type="tns:CVType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdditionalPatientInformationType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dateOfBirth" type="tns:DateType"/>
+      <xs:element name="gender" type="tns:CVType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PQIntervalType">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="low" type="xs:double" minOccurs="0"/>
+      <xs:element name="high" type="xs:double" minOccurs="0"/>
+      <xs:element name="unit" type="xs:string" minOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TimePeriodType">
+    <xs:annotation>
+      <xs:documentation>Används för att specificera ett datumintervall
+        med hjälp av start- och slutdatum.
+        
+        start:
+        Startdatum på formatet YYYYMMDDhhmmss
+        end:
+        Slutdatum på formatet YYYYMMDDhhmmss</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="start" type="tns:TimeStampType" minOccurs="0"/>
+      <xs:element name="end" type="tns:TimeStampType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/Users/khaleddaham/NetBeansProjects/rivta/ServiceInteractions/riv/clinicalprocess/activityprescription/actoutcome/trunk/schemas/core_components/clinicalprocess_activityprescription_actoutcome_enum_2.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2">
+  <xs:simpleType name="ResultCodeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="ERROR"/>
+      <xs:enumeration value="INFO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ErrorCodeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INVALID_REQUEST"/>
+      <xs:enumeration value="TRANSFORMATION_ERROR"/>
+      <xs:enumeration value="APPLICATION_ERROR"/>
+      <xs:enumeration value="TECHNICAL_ERROR"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NonReplaceableEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Prescriber"/>
+      <xs:enumeration value="Patient"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeOfPrescriptionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Insättning"/>
+      <xs:enumeration value="Utsättning"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrescriptionStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active"/>
+      <xs:enumeration value="Inactive"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/Users/khaleddaham/NetBeansProjects/rivta/ServiceInteractions/riv/clinicalprocess/activityprescription/actoutcome/trunk/schemas/core_components/itintegration_registry_1.0.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="urn:riv:itintegration:registry:1" elementFormDefault="qualified" version="1.0" xmlns="urn:riv:itintegration:registry:1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>Beskrivning: 	Grundl��ggande informationsobjekt f��r dom��nen itintegration:registry (adressering av tj��nster)
+			
+			Revisionshistorik: 2011-06-27 Mats Ekhammar, Callista Enterprise AB
+				Added ServiceContractType
+			
+			Datum:			2011-05-04
+			Beskrivning:	Initial version
+			F��rfattare:		marcus.krantz@callistaenterprise.se</xs:documentation>
+  </xs:annotation>
+  <xs:element name="LogicalAddress" type="LogicalAddressType"/>
+  <xs:element name="ServiceContract" type="ServiceContractType"/>
+  <xs:simpleType name="LogicalAddressType">
+    <xs:annotation>
+      <xs:documentation>Defines the type for logical address according to national reference architecture.
+				Superseeds wsa:To as type for logical address header in RIVTA 2.1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:complexType name="ServiceContractType">
+    <xs:annotation>
+      <xs:documentation>Type which describes a service contract. Used in interaction GetSupportedServiceContracts.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ServiceContractNamespace" type="xs:anyURI"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>${webServiceUrl}</con:endpoint><con:endpoint>http://tempuri.org</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:1:GetMedicationHistory" name="GetMedicationHistory" bindingOperationName="GetMedicationHistory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="0b786093-d27e-403d-9a5a-89dc06854cd2"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:1" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:1">
+   <soapenv:Header>
+      <urn:LogicalAddress>?</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetMedicationHistory>
+         <!--Zero or more repetitions:-->
+         <urn1:careUnitHSAId>?</urn1:careUnitHSAId>
+         <!--Zero or more repetitions:-->
+         <urn1:careGiverHSAId>?</urn1:careGiverHSAId>
+         <urn1:patientId>
+            <urn2:id>?</urn2:id>
+            <urn2:type>?</urn2:type>
+            <!--You may enter ANY elements at this point-->
+         </urn1:patientId>
+         <!--Optional:-->
+         <urn1:datePeriod>
+            <!--Optional:-->
+            <urn2:start>?</urn2:start>
+            <!--Optional:-->
+            <urn2:end>?</urn2:end>
+            <!--You may enter ANY elements at this point-->
+         </urn1:datePeriod>
+         <!--Optional:-->
+         <urn1:sourceSystemHSAId>?</urn1:sourceSystemHSAId>
+         <!--Zero or more repetitions:-->
+         <urn1:careContactId>?</urn1:careContactId>
+         <!--Zero or more repetitions:-->
+         <urn1:prescriptionChainId>
+            <urn2:root>?</urn2:root>
+            <!--Optional:-->
+            <urn2:extension>?</urn2:extension>
+            <!--You may enter ANY elements at this point-->
+         </urn1:prescriptionChainId>
+         <urn1:activeOnly/>
+         <!--You may enter ANY elements at this point-->
+      </urn1:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:1:GetMedicationHistory"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite" id="10ee7551-ec28-48ad-9414-5a029a55d8a3"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Basic Testcase" searchProperties="true" id="05a348b5-dbbe-4f27-9ac3-8854a74c45ca"><con:settings/><con:testStep type="groovy" name="GIVEN Basic Testcase data" id="838cd404-7e9c-4433-a641-352c05da1d24"><con:settings/><con:config><script>import se.skl.rivta.testsupport.soapui.datasource.XmlDataReader
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def dataFile = new File(utils.projectPath + "/data.xml")
+def source = new XmlDataReader(context, dataFile)
+
+source.load("Basic Testcase")</script></con:config></con:testStep><con:testStep type="request" name="WHEN calling GetMedicationHistory" id="2aaa79cc-9bb1-473f-9723-978cbfd886a7"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetMedicationHistoryResponderBinding</con:interface><con:operation>GetMedicationHistory</con:operation><con:request name="WHEN calling GetMedicationHistory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-mock-response" value="Basic Testcase"/>
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="${httpHeaderHsaId}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>${logicalAddress}</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetMedicationHistory>
+         <urn1:patientId>
+            <urn2:id>${patientId}</urn2:id>
+            <urn2:type>${patientIdType}</urn2:type>
+         </urn1:patientId>
+      </urn1:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="c85b4472-3f96-4fe4-86f7-dd7b22f4ac0b"/><con:assertion type="Schema Compliance" id="d31c5f92-64fe-4617-a817-2f81de64ca16"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="c8c39719-fcef-4b5b-b40e-c0bda9ead18a"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="assertionteststep" name="THEN ensure all schemtron rules passes" id="798e1e24-7e30-4826-9021-a0f49f81c4f1"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>88b716cb-924d-4e75-9afb-2fe84d8463bb</con:id><con:isGroup>false</con:isGroup><con:sourceId>2aaa79cc-9bb1-473f-9723-978cbfd886a7</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import se.skl.rivta.testsupport.soapui.validation.SchematronValidator
+import se.skl.rivta.testsupport.soapui.ContextHelper
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def contextHelper = new ContextHelper(context)
+def validator = new SchematronValidator()
+
+def constraintsPath = messageExchange.modelItem.testStep.testCase.testSuite.project.getPropertyValue( "constraintsPath" )
+
+def failures = validator.validateMessage(messageExchange.response.responseContent,
+	new File(utils.projectPath + File.separator + "constraints.xml"))
+
+failures.each { failure ->
+    log.error ("Failure $failure.text")
+}
+
+assert (failures.isEmpty())</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure patientID in response is correct" id="63974903-eda8-41bf-88ce-6403d4a0f476"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>51de829e-284e-4c65-b009-72b84ffea7aa</con:id><con:isGroup>false</con:isGroup><con:sourceId>2aaa79cc-9bb1-473f-9723-978cbfd886a7</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def records = holder.getDomNodes(context.expand('${#TestSuite#headerNode}'))
+
+if (records.length == 0) {
+    contextHelper.fail("Response contains no records.")
+    return
+}
+
+// Compare patientId and patientIdType in the response to what we have in data.xml for this test case.
+records.each {c ->
+	def recordHolder = new XmlHolder( c )
+	holder.namespaces.each {key, value -> recordHolder.namespaces[key] = value}
+	def documentId = recordHolder.getNodeValue('//urn1:documentId')
+	def patientId = recordHolder.getNodeValue('//urn1:patientId/urn1:id')
+	def patientIdType = recordHolder.getNodeValue('//urn1:patientId/urn1:type')
+	if (patientId != context.patientId || patientIdType != context.patientIdType) {
+		contextHelper.fail("Response contains a record with other PatientId. PatientId: ${patientId}, Type: ${patientIdType} DocumentId: ${documentId}")
+	}
+}</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure document id's are valid" id="2b97a336-eb13-4c19-9f00-dbaec7e40739"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>4bb51449-d7ea-4d47-ae41-a02a456ebb5d</con:id><con:isGroup>false</con:isGroup><con:sourceId>2aaa79cc-9bb1-473f-9723-978cbfd886a7</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def documentIds = holder.getNodeValues(context.expand('${#TestSuite#headerNode}') + '/urn1:documentId') as List
+if (documentIds.size == 0 || documentIds == null) {
+    contextHelper.fail("Response contains no documentId's.")
+    return
+}
+
+def expectedDocumentIds = context.expectedDocumentIds ? context.expectedDocumentIds.tokenize(',') : []
+def unexpectedDocumentIds = context.unexpectedDocumentIds ? context.unexpectedDocumentIds.tokenize(',') : []
+
+documentIds.each {id -> 
+	if (unexpectedDocumentIds.contains(id)) {
+		contextHelper.fail("Response contains a unexpected record. DocumentId: $id")
+	}
+}
+expectedDocumentIds.each {id -> 
+	if (!documentIds.contains(id)) {
+		contextHelper.fail("Response does not contain a expected record. DocumentId: $id")
+	}
+}</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure a result.logId is returned" id="d74c3f11-4c66-488d-9e2c-3a102e90cad8"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>25774f9c-3125-4638-a7a9-b6cb1b30db4b</con:id><con:isGroup>false</con:isGroup><con:sourceId>2aaa79cc-9bb1-473f-9723-978cbfd886a7</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:logId[matches(., '.*')]</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure result.resultCode equals OK" id="14ddc3a5-18de-49aa-a699-e96b00bd5f61"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>1cacc4b8-c72f-41ff-ada6-b70cbce1f44b</con:id><con:isGroup>false</con:isGroup><con:sourceId>2aaa79cc-9bb1-473f-9723-978cbfd886a7</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:resultCode[1]/text() = "OK"</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>d74c3f11-4c66-488d-9e2c-3a102e90cad8</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>14ddc3a5-18de-49aa-a699-e96b00bd5f61</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Date boundaries" searchProperties="true" id="43ccc3a0-3ef4-4078-9684-70d2ac330d65"><con:settings/><con:testStep type="groovy" name="Read data" id="a8833c7a-42a5-407f-bc5a-24e406376cdf"><con:settings/><con:config><script>import se.skl.rivta.testsupport.soapui.datasource.XmlDataReader
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def dataFile = new File(utils.projectPath + "/data.xml")
+def source = new XmlDataReader(context, dataFile)
+
+source.load("Date Boundaries")</script></con:config></con:testStep><con:testStep type="request" name="WHEN calling GetMedicationHistory" id="39708fc1-e090-46cf-934d-2b8e9c7c1132"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetMedicationHistoryResponderBinding</con:interface><con:operation>GetMedicationHistory</con:operation><con:request name="WHEN calling GetMedicationHistory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-mock-response" value="DateBoundaries"/>
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="${httpHeaderHsaId}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>${logicalAddress}</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetMedicationHistory>
+         <urn1:patientId>
+            <urn2:id>${patientId}</urn2:id>
+            <urn2:type>${patientIdType}</urn2:type>
+         </urn1:patientId>
+      </urn1:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="9fbd7439-530a-4ec3-9dcd-902ced8c6656"/><con:assertion type="Schema Compliance" id="d017fb69-6c88-4397-8687-7b78550f778a"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="8956f8e5-423b-431c-a760-0feb7dae4079"/><con:assertion type="Response SLA Assertion" name="Response SLA" id="d8137bb9-8b93-4cd1-9546-9a87ba2fd925"><con:configuration><SLA>15000</SLA></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="assertionteststep" name="THEN ensure all schematron rules passes" id="21b1fafc-05e0-4a20-885e-025e490379f8"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>d5d93904-9431-49a6-8895-24cf73adf8ff</con:id><con:isGroup>false</con:isGroup><con:sourceId>39708fc1-e090-46cf-934d-2b8e9c7c1132</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import se.skl.rivta.testsupport.soapui.validation.SchematronValidator
+import se.skl.rivta.testsupport.soapui.ContextHelper
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def contextHelper = new ContextHelper(context)
+def validator = new SchematronValidator()
+
+def constraintsPath = messageExchange.modelItem.testStep.testCase.testSuite.project.getPropertyValue( "constraintsPath" )
+
+def failures = validator.validateMessage(messageExchange.response.responseContent,
+	new File(utils.projectPath + File.separator + "constraints.xml"))
+
+failures.each { failure ->
+    log.error ("Failure $failure.text")
+}
+
+assert (failures.isEmpty())</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure dates in response are valid" id="70d01271-8a84-4df8-b581-1561cc3e645c"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>c0a581c9-2337-4773-b4b5-baa5dd4dc401</con:id><con:isGroup>false</con:isGroup><con:sourceId>39708fc1-e090-46cf-934d-2b8e9c7c1132</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText><![CDATA[import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def records = holder.getDomNodes(context.expand('${#TestSuite#headerNode}'))
+if (records.length == 0) {
+    contextHelper.fail("Response contains no records.")
+    return
+}
+
+records.each {c ->
+    def recordHolder = new XmlHolder( c )
+    holder.namespaces.each {key, value -> recordHolder.namespaces[key] = value}
+    patientId = context.timePeriodEnd;
+
+    def documentId = recordHolder.getNodeValue('//urn1:documentId')
+    def documentTime = recordHolder.getNodeValue('//urn1:documentTime')
+    def authorTime = recordHolder.getNodeValue('//urn1:accountableHealthcareProfessional/urn1:authorTime')
+    def signatureTime = recordHolder.getNodeValue('//urn1:legalAuthenticator/urn1:signatureTime')
+    if (context.timePeriodStart <= authorTime[0..7] && authorTime[0..7] <= context.timePeriodEnd) {
+        return
+    }
+    if (signatureTime != null && context.timePeriodStart <= signatureTime[0..7] && signatureTime[0..7] <= context.timePeriodEnd) {
+        return
+    }
+	contextHelper.fail("Response contains a record outside given date range ${context.timePeriodStart} - ${context.timePeriodEnd}. DocumentId: $documentId")
+}]]></scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure document id's are valid" id="9622fade-f624-4f40-9508-794aa8150273"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>8553a46a-ea1f-4a65-907a-bc61afcc0042</con:id><con:isGroup>false</con:isGroup><con:sourceId>39708fc1-e090-46cf-934d-2b8e9c7c1132</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def documentIds = holder.getNodeValues(context.expand('${#TestSuite#headerNode}') + '/urn1:documentId') as List
+if (documentIds.size == 0 || documentIds == null) {
+    contextHelper.fail("Response contains no documentId's.")
+    return
+}
+
+def expectedDocumentIds = context.expectedDocumentIds ? context.expectedDocumentIds.tokenize(',') : []
+def unexpectedDocumentIds = context.unexpectedDocumentIds ? context.unexpectedDocumentIds.tokenize(',') : []
+
+documentIds.each {id -> 
+	if (unexpectedDocumentIds.contains(id)) {
+		contextHelper.fail("Response contains a unexpected record. DocumentId: $id")
+	}
+}
+expectedDocumentIds.each {id -> 
+	if (!documentIds.contains(id)) {
+		contextHelper.fail("Response does not contain a expected record. DocumentId: $id")
+	}
+}</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure a result.logId is returned" id="6159f6d9-3014-461b-9435-126f585bc110"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>e64ddb15-b743-422b-a3b5-aac52f6d4d9b</con:id><con:isGroup>false</con:isGroup><con:sourceId>39708fc1-e090-46cf-934d-2b8e9c7c1132</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:logId[matches(., '.*')]</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure result.resultCode equals OK"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>6d59bf8c-6124-4e3c-bfac-d19567b4d240</con:id><con:isGroup>false</con:isGroup><con:sourceId>39708fc1-e090-46cf-934d-2b8e9c7c1132</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:resultCode[1]/text() = "OK"</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CareUnitHsaId Filter" searchProperties="true" id="1094041d-a88e-473d-bdc2-f2f366797734"><con:settings/><con:testStep type="groovy" name="GIVEN CareUnitHsaId data" id="0f45569c-5391-422f-82e8-a69b54f318d5"><con:settings/><con:config><script>import se.skl.rivta.testsupport.soapui.datasource.XmlDataReader
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def dataFile = new File(utils.projectPath + "/data.xml")
+def source = new XmlDataReader(context, dataFile)
+
+source.load("CareUnitHsaId Filter")</script></con:config></con:testStep><con:testStep type="request" name="WHEN calling GetMedicationHistory" id="5dc82288-e0b4-44fd-bbbc-b3c214885572"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetMedicationHistoryResponderBinding</con:interface><con:operation>GetMedicationHistory</con:operation><con:request name="WHEN calling GetMedicationHistory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-mock-response" value="CareUnitHsaId Filter"/>
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="${httpHeaderHsaId}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>${logicalAddress}</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetMedicationHistory>
+         <urn1:careUnitHSAId>${careUnitHSAId}</urn1:careUnitHSAId>
+         <urn1:patientId>
+            <urn2:id>${patientId}</urn2:id>
+            <urn2:type>${patientIdType}</urn2:type>
+         </urn1:patientId>
+      </urn1:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>15000</SLA></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="assertionteststep" name="THEN ensure all schematron rules passes" id="30e1a6e8-10ae-45c7-8c71-fe4d3af951d1"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>8c04b99a-0b0b-4033-bfda-03a489fc4c9e</con:id><con:isGroup>false</con:isGroup><con:sourceId>5dc82288-e0b4-44fd-bbbc-b3c214885572</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import se.skl.rivta.testsupport.soapui.validation.SchematronValidator
+import se.skl.rivta.testsupport.soapui.ContextHelper
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def contextHelper = new ContextHelper(context)
+def validator = new SchematronValidator()
+
+def constraintsPath = messageExchange.modelItem.testStep.testCase.testSuite.project.getPropertyValue( "constraintsPath" )
+
+def failures = validator.validateMessage(messageExchange.response.responseContent,
+	new File(utils.projectPath + File.separator + "constraints.xml"))
+
+failures.each { failure ->
+    log.error ("Failure $failure.text")
+}
+
+assert (failures.isEmpty())</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure careUnitHSAId is valid" id="5a41a8cf-d73d-4cce-a6ad-92b74b3e00a7"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>cd7a3f79-d39d-4958-a2d7-db5695a68860</con:id><con:isGroup>false</con:isGroup><con:sourceId>5dc82288-e0b4-44fd-bbbc-b3c214885572</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def records = holder.getDomNodes(context.expand('${#TestSuite#headerNode}'))
+if (records.length == 0) {
+    contextHelper.fail("Response contains no records.")
+    return
+}
+
+records.each {c ->
+    def recordHolder = new XmlHolder( c )
+    holder.namespaces.each {key, value -> recordHolder.namespaces[key] = value}
+
+
+    def documentId = recordHolder.getNodeValue('//urn1:documentId')
+    def careUnitHSAId = recordHolder.getNodeValue('//urn1:healthcareProfessionalCareUnitHSAId')
+    log.info(careUnitHSAId)
+
+    if (careUnitHSAId != context.careUnitHSAId) {
+        contextHelper.fail("Response contains a record with other CareUnitHSAId. CareUnitHSAId: ${careUnitHSAId} DocumentId: ${documentId}")
+    }
+}</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure document id's are valid" id="76193654-43f6-4dac-b9f8-dc698cd14637"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>6b1b98eb-3814-493f-81e3-7dda2c701c06</con:id><con:isGroup>false</con:isGroup><con:sourceId>5dc82288-e0b4-44fd-bbbc-b3c214885572</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def documentIds = holder.getNodeValues(context.expand('${#TestSuite#headerNode}') + '/urn1:documentId') as List
+if (documentIds.size == 0 || documentIds == null) {
+    contextHelper.fail("Response contains no documentId's.")
+    return
+}
+
+def expectedDocumentIds = context.expectedDocumentIds ? context.expectedDocumentIds.tokenize(',') : []
+def unexpectedDocumentIds = context.unexpectedDocumentIds ? context.unexpectedDocumentIds.tokenize(',') : []
+
+documentIds.each {id ->
+    if (unexpectedDocumentIds.contains(id)) {
+        contextHelper.fail("Response contains a unexpected record. DocumentId: $id")
+    }
+}
+expectedDocumentIds.each {id ->
+    if (!documentIds.contains(id)) {
+        contextHelper.fail("Response does not contain a expected record. DocumentId: $id")
+    }
+}</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure a result.logId is returned" id="86bfefd2-4f48-4919-a3f0-99ff0c1eecfd"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>999a2c5a-0414-4778-b7c6-fc11538ad1d7</con:id><con:isGroup>false</con:isGroup><con:sourceId>5dc82288-e0b4-44fd-bbbc-b3c214885572</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:logId[matches(., '.*')]</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure result.resultCode equals OK"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>d5fc9499-8c75-4b27-bb55-422a7e382e9a</con:id><con:isGroup>false</con:isGroup><con:sourceId>5dc82288-e0b4-44fd-bbbc-b3c214885572</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:resultCode[1]/text() = "OK"</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Only PatientId" searchProperties="true" id="e2c9e1ae-5913-437a-abb8-e8ade657aaca"><con:settings/><con:testStep type="groovy" name="GIVEN Only PatientId data" id="46478dac-8cf7-44da-95ae-6465991e79d1"><con:settings/><con:config><script>import se.skl.rivta.testsupport.soapui.datasource.XmlDataReader
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def dataFile = new File(utils.projectPath + "/data.xml")
+def source = new XmlDataReader(context, dataFile)
+
+source.load("Only PatientId")</script></con:config></con:testStep><con:testStep type="request" name="WHEN calling GetMedicationHistory" id="a2ef6752-ba52-4b79-a4fd-8f0f196b2f97"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetMedicationHistoryResponderBinding</con:interface><con:operation>GetMedicationHistory</con:operation><con:request name="WHEN calling GetMedicationHistory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-mock-response" value="Only PatientId"/>
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="${httpHeaderHsaId}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>${logicalAddress}</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetMedicationHistory>
+         <urn1:patientId>
+            <urn2:id>${patientId}</urn2:id>
+            <urn2:type>${patientIdType}</urn2:type>
+         </urn1:patientId>
+      </urn1:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>15000</SLA></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="assertionteststep" name="THEN ensure all schematron rules passes" id="dc48bead-f007-4a3e-8bf6-72d6c0389c85"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>70391251-bcbc-4df4-9025-b501f8cc23fc</con:id><con:isGroup>false</con:isGroup><con:sourceId>a2ef6752-ba52-4b79-a4fd-8f0f196b2f97</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import se.skl.rivta.testsupport.soapui.validation.SchematronValidator
+import se.skl.rivta.testsupport.soapui.ContextHelper
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def contextHelper = new ContextHelper(context)
+def validator = new SchematronValidator()
+
+def constraintsPath = messageExchange.modelItem.testStep.testCase.testSuite.project.getPropertyValue( "constraintsPath" )
+
+def failures = validator.validateMessage(messageExchange.response.responseContent,
+	new File(utils.projectPath + File.separator + "constraints.xml"))
+
+failures.each { failure ->
+    log.error ("Failure $failure.text")
+}
+
+assert (failures.isEmpty())</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure patientId is valid" id="5781a889-a510-4d5c-b785-123d05ccb447"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>b81868cb-f0e3-4772-a5b0-ee5891d2b4d0</con:id><con:isGroup>false</con:isGroup><con:sourceId>a2ef6752-ba52-4b79-a4fd-8f0f196b2f97</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def records = holder.getDomNodes(context.expand('${#TestSuite#headerNode}'))
+
+if (records.length == 0) {
+    contextHelper.fail("Response contains no records.")
+    return
+}
+
+// Compare patientId and patientIdType in the response to what we have in data.xml for this test case.
+records.each {c ->
+	def recordHolder = new XmlHolder( c )
+	holder.namespaces.each {key, value -> recordHolder.namespaces[key] = value}
+	def documentId = recordHolder.getNodeValue('//urn1:documentId')
+	def patientId = recordHolder.getNodeValue('//urn1:patientId/urn1:id')
+	def patientIdType = recordHolder.getNodeValue('//urn1:patientId/urn1:type')
+	if (patientId != context.patientId || patientIdType != context.patientIdType) {
+		contextHelper.fail("Response contains a record with other PatientId. PatientId: ${patientId}, Type: ${patientIdType} DocumentId: ${documentId}")
+	}
+}</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure document id's are valid" id="32cdf9aa-fba1-4d80-a976-33abb9068b75"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>7e2fa5c9-8de3-4298-bdcb-45be5db302e9</con:id><con:isGroup>false</con:isGroup><con:sourceId>a2ef6752-ba52-4b79-a4fd-8f0f196b2f97</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def documentIds = holder.getNodeValues(context.expand('${#TestSuite#headerNode}') + '/urn1:documentId') as List
+if (documentIds.size == 0 || documentIds == null) {
+    contextHelper.fail("Response contains no documentId's.")
+    return
+}
+
+def expectedDocumentIds = context.expectedDocumentIds ? context.expectedDocumentIds.tokenize(',') : []
+def unexpectedDocumentIds = context.unexpectedDocumentIds ? context.unexpectedDocumentIds.tokenize(',') : []
+
+documentIds.each {id -> 
+	if (unexpectedDocumentIds.contains(id)) {
+		contextHelper.fail("Response contains a unexpected record. DocumentId: $id")
+	}
+}
+expectedDocumentIds.each {id -> 
+	if (!documentIds.contains(id)) {
+		contextHelper.fail("Response does not contain a expected record. DocumentId: $id")
+	}
+}</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure a result.logId is returned" id="81093e16-df3a-45d7-9511-717880b780a3"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>99386564-e685-46cc-9384-a890e943cce0</con:id><con:isGroup>false</con:isGroup><con:sourceId>a2ef6752-ba52-4b79-a4fd-8f0f196b2f97</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:logId[matches(., '.*')]</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure result.resultCode equals OK"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>45f3c3f8-8c7c-4e38-a086-8e772aceaaf4</con:id><con:isGroup>false</con:isGroup><con:sourceId>a2ef6752-ba52-4b79-a4fd-8f0f196b2f97</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:resultCode[1]/text() = "OK"</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="NonExisting PatientId" searchProperties="true" id="638093ab-4ab9-4913-9597-15de564cb887"><con:settings/><con:testStep type="groovy" name="GIVEN NonExisting PatientId data" id="b0503130-19da-4536-81e6-8c6c8e695246"><con:settings/><con:config><script>import se.skl.rivta.testsupport.soapui.datasource.XmlDataReader
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def dataFile = new File(utils.projectPath + "/data.xml")
+def source = new XmlDataReader(context, dataFile)
+
+source.load("NonExisting PatientId")</script></con:config></con:testStep><con:testStep type="request" name="WHEN calling GetMedicationHistory" id="978350f6-9086-48ae-8503-4d8c53835b2b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetMedicationHistoryResponderBinding</con:interface><con:operation>GetMedicationHistory</con:operation><con:request name="WHEN calling GetMedicationHistory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-mock-response" value="Empty Response"/>
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="${httpHeaderHsaId}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>${logicalAddress}</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetMedicationHistory>
+         <urn1:patientId>
+            <urn2:id>${patientId}</urn2:id>
+            <urn2:type>${patientIdType}</urn2:type>
+         </urn1:patientId>
+      </urn1:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>15000</SLA></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Assert Schematron"><con:configuration><scriptText>import se.skl.rivta.testsupport.soapui.validation.SchematronValidator
+import se.skl.rivta.testsupport.soapui.ContextHelper
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def contextHelper = new ContextHelper(context)
+def validator = new SchematronValidator()
+
+def failures = validator.validateMessage(messageExchange.response.responseContent,
+	new File(utils.projectPath + "/constraints.xml"))
+
+failures.each { failure -> contextHelper.fail(failure.text) }</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" name="Assert Empty Response"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def contextHelper = new ContextHelper(context)
+
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+holder.namespaces['urn'] = 'urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:1'
+holder.namespaces['urn1'] = 'urn:riv:clinicalprocess:activityprescription:actoutcome:1'
+
+def records = holder.getDomNodes('/soapenv:Envelope/soapenv:Body/urn:GetVaccinationHistoryResponse/urn:vaccinationMedicalRecord')
+
+if (records.length != 0) {
+	contextHelper.fail("Response should be empty for PatientId: ${context.patientId} PatientIdType: ${context.patientIdType}")
+}</scriptText></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="assertionteststep" name="THEN ensure all schematron rules passes" id="a324bb60-9b97-4e25-946a-79d8b438c3b4"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>b6647a25-9cc5-49fc-957c-88e668ae078b</con:id><con:isGroup>false</con:isGroup><con:sourceId>978350f6-9086-48ae-8503-4d8c53835b2b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import se.skl.rivta.testsupport.soapui.validation.SchematronValidator
+import se.skl.rivta.testsupport.soapui.ContextHelper
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def contextHelper = new ContextHelper(context)
+def validator = new SchematronValidator()
+
+def constraintsPath = messageExchange.modelItem.testStep.testCase.testSuite.project.getPropertyValue( "constraintsPath" )
+
+def failures = validator.validateMessage(messageExchange.response.responseContent,
+	new File(utils.projectPath + File.separator + "constraints.xml"))
+
+failures.each { failure ->
+    log.error ("Failure $failure.text")
+}
+
+assert (failures.isEmpty())</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure a result.logId is returned" id="da55c7f7-ddaf-4439-8f4c-708692b2f224"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>46fc61d9-2964-42b4-85f1-21d7b07c6776</con:id><con:isGroup>false</con:isGroup><con:sourceId>978350f6-9086-48ae-8503-4d8c53835b2b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:logId[matches(., '.*')]</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure result.resultCode is OK"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>285a39af-60cb-43e2-b44d-2d187a59feb7</con:id><con:isGroup>false</con:isGroup><con:sourceId>978350f6-9086-48ae-8503-4d8c53835b2b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:resultCode[1]/text() = "OK"</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CareContactId Filter" searchProperties="true" id="f8357793-672d-4bc5-8922-b159b57ea441"><con:settings/><con:testStep type="groovy" name="GIVEN CareContactId Filter data" id="b793b0ed-4c2a-45ec-ac81-3d3a573c9c1a"><con:settings/><con:config><script>import se.skl.rivta.testsupport.soapui.datasource.XmlDataReader
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def dataFile = new File(utils.projectPath + "/data.xml")
+def source = new XmlDataReader(context, dataFile)
+
+source.load("CareContactId Filter")</script></con:config></con:testStep><con:testStep type="request" name="WHEN calling GetMedicationHistory" id="cd350c83-962b-4e23-937d-e876b0b7721b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetMedicationHistoryResponderBinding</con:interface><con:operation>GetMedicationHistory</con:operation><con:request name="WHEN calling GetMedicationHistory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-mock-response" value="CareContactId Filter"/>
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="${httpHeaderHsaId}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>${logicalAddress}</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetMedicationHistory>
+         <urn1:patientId>
+            <urn2:id>${patientId}</urn2:id>
+            <urn2:type>${patientIdType}</urn2:type>
+         </urn1:patientId>
+         <urn1:sourceSystemHSAId>${sourceSystemHSAId}</urn1:sourceSystemHSAId>
+         <urn1:careContactId>${careContactId}</urn1:careContactId>
+      </urn1:GetMedicationHistory>
+      </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>15000</SLA></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="assertionteststep" name="THEN ensure all schematron rules passes" id="e470654b-e728-484e-b7e9-1f3ecea77b68"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>cae00ef3-9de6-44b8-8031-2dac45a82027</con:id><con:isGroup>false</con:isGroup><con:sourceId>cd350c83-962b-4e23-937d-e876b0b7721b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import se.skl.rivta.testsupport.soapui.validation.SchematronValidator
+import se.skl.rivta.testsupport.soapui.ContextHelper
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def contextHelper = new ContextHelper(context)
+def validator = new SchematronValidator()
+
+def constraintsPath = messageExchange.modelItem.testStep.testCase.testSuite.project.getPropertyValue( "constraintsPath" )
+
+def failures = validator.validateMessage(messageExchange.response.responseContent,
+	new File(utils.projectPath + File.separator + "constraints.xml"))
+
+failures.each { failure ->
+    log.error ("Failure $failure.text")
+}
+
+assert (failures.isEmpty())</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure correct careContactId" id="f30e3a2e-b61d-4aa3-9d88-c30661ec50e1"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>86b23a20-686c-40a7-923d-ab0d0d57e834</con:id><con:isGroup>false</con:isGroup><con:sourceId>cd350c83-962b-4e23-937d-e876b0b7721b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+def records = holder.getDomNodes(context.expand('${#TestSuite#headerNode}'))
+
+if (records.length == 0) {
+    contextHelper.fail("Response contains no records.")
+    return
+}
+
+records.each {c ->
+    def recordHolder = new XmlHolder( c )
+    holder.namespaces.each {key, value -> recordHolder.namespaces[key] = value}
+
+    def documentId = recordHolder.getNodeValue('//urn1:documentId')
+    def sourceSystemHSAId = recordHolder.getNodeValue('//urn1:sourceSystemHSAId')
+    def careContactId = recordHolder.getNodeValue('//urn1:careContactId')
+
+    if (sourceSystemHSAId != context.sourceSystemHSAId || careContactId != context.careContactId) {
+        contextHelper.fail("Response contains a record with other CareContactId. CareContactId: ${careContactId}, SourceSystemHSAId: ${sourceSystemHSAId} DocumentId: ${documentId}")
+    }
+}</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure correct documentID" id="a2ea835a-fd62-4d75-aa61-55423fd31c19"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>ef886980-78ae-49a5-833a-30d1be66cbe2</con:id><con:isGroup>false</con:isGroup><con:sourceId>cd350c83-962b-4e23-937d-e876b0b7721b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def documentIds = holder.getNodeValues(context.expand('${#TestSuite#headerNode}') + '/urn1:documentId') as List
+if (documentIds.size == 0 || documentIds == null) {
+    contextHelper.fail("Response contains no documentId's.")
+    return
+}
+
+def expectedDocumentIds = context.expectedDocumentIds ? context.expectedDocumentIds.tokenize(',') : []
+def unexpectedDocumentIds = context.unexpectedDocumentIds ? context.unexpectedDocumentIds.tokenize(',') : []
+
+documentIds.each {id ->
+    if (unexpectedDocumentIds.contains(id)) {
+        contextHelper.fail("Response contains a unexpected record. DocumentId: $id")
+    }
+}
+expectedDocumentIds.each {id ->
+    if (!documentIds.contains(id)) {
+        contextHelper.fail("Response does not contain a expected record. DocumentId: $id")
+    }
+}</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure a result.logId is returned" id="d9851154-14e1-48a6-b755-6f28baca084d"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>70e5661e-4f9b-4bb7-bbe6-1d663bf9f693</con:id><con:isGroup>false</con:isGroup><con:sourceId>cd350c83-962b-4e23-937d-e876b0b7721b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:logId[matches(., '.*')]</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure result.resultCode is OK"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>edd77893-4045-4cb1-bc6a-55dc2d549e90</con:id><con:isGroup>false</con:isGroup><con:sourceId>cd350c83-962b-4e23-937d-e876b0b7721b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:resultCode[1]/text() = "OK"</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="NonExisting CareContactId" searchProperties="true" id="3002a835-90ce-4524-b921-3a04ad0bb2b4"><con:settings/><con:testStep type="groovy" name="GIVEN NonExisting CareContactId data" id="d440837b-ad8d-472f-9291-f1779fdc64ae"><con:settings/><con:config><script>import se.skl.rivta.testsupport.soapui.datasource.XmlDataReader
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def dataFile = new File(utils.projectPath + "/data.xml")
+def source = new XmlDataReader(context, dataFile)
+
+source.load("NonExisting CareContactId")</script></con:config></con:testStep><con:testStep type="request" name="WHEN calling GetMedicationHistory" id="fdb12888-4f3f-4fa7-a5bb-a2c83cab309e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetMedicationHistoryResponderBinding</con:interface><con:operation>GetMedicationHistory</con:operation><con:request name="WHEN calling GetMedicationHistory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-mock-response" value="Empty Response"/>
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="${httpHeaderHsaId}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>${logicalAddress}</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetMedicationHistory>
+         <urn1:patientId>
+            <urn2:id>${patientId}</urn2:id>
+            <urn2:type>${patientIdType}</urn2:type>
+         </urn1:patientId>
+         <urn1:sourceSystemHSAId>${sourceSystemHSAId}</urn1:sourceSystemHSAId>
+         <urn1:careContactId>${careContactId}</urn1:careContactId>
+      </urn1:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>15000</SLA></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="assertionteststep" name="THEN ensure all schematron rules passes" id="ed477499-049e-4d61-b030-883215d262eb"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>44ab1434-a4c0-4ee1-a4a3-6855c5cc1ab8</con:id><con:isGroup>false</con:isGroup><con:sourceId>fdb12888-4f3f-4fa7-a5bb-a2c83cab309e</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import se.skl.rivta.testsupport.soapui.validation.SchematronValidator
+import se.skl.rivta.testsupport.soapui.ContextHelper
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def contextHelper = new ContextHelper(context)
+def validator = new SchematronValidator()
+
+def constraintsPath = messageExchange.modelItem.testStep.testCase.testSuite.project.getPropertyValue( "constraintsPath" )
+
+def failures = validator.validateMessage(messageExchange.response.responseContent,
+	new File(utils.projectPath + File.separator + "constraints.xml"))
+
+failures.each { failure ->
+    log.error ("Failure $failure.text")
+}
+
+assert (failures.isEmpty())</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure result.logId is returned" id="0022001c-50ed-4160-bbd5-ab0aa1817cdf"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>d837f8b7-707d-4954-afe5-7aca4ac0c875</con:id><con:isGroup>false</con:isGroup><con:sourceId>fdb12888-4f3f-4fa7-a5bb-a2c83cab309e</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:logId[matches(., '.*')]</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure result.resultCode is OK"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>3da111f0-08bf-4fc0-9618-6b5290ea7471</con:id><con:isGroup>false</con:isGroup><con:sourceId>fdb12888-4f3f-4fa7-a5bb-a2c83cab309e</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:resultCode[1]/text() = "OK"</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="HTTPHeader Filter" searchProperties="true" id="717553e0-219b-43d0-ac12-e903e58a84ec"><con:settings/><con:testStep type="groovy" name="GIVEN HTTPHeader Filter data" id="3041b37d-4d3c-4afa-82c7-c9b7222582e0"><con:settings/><con:config><script>import se.skl.rivta.testsupport.soapui.datasource.XmlDataReader
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def dataFile = new File(utils.projectPath + "/data.xml")
+def source = new XmlDataReader(context, dataFile)
+
+source.load("HTTPHeader Filter")</script></con:config></con:testStep><con:testStep type="request" name="WHEN calling GetMedicationHistory" id="88eaedaf-8d24-4cdd-9233-69adfbaa263b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetMedicationHistoryResponderBinding</con:interface><con:operation>GetMedicationHistory</con:operation><con:request name="WHEN calling GetMedicationHistory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-mock-response" value="HTTPHeader Filter"/>
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="${httpHeaderHsaId}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>${logicalAddress}</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetMedicationHistory>
+         <urn1:patientId>
+            <urn2:id>${patientId}</urn2:id>
+            <urn2:type>${patientIdType}</urn2:type>
+         </urn1:patientId>
+      </urn1:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>15000</SLA></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="assertionteststep" name="THEN ensure all schematron rules passes" id="83f3f084-8ec2-4f58-be1d-3c2b8ba3ee0f"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>dc2dc8e2-9b5f-46fa-a89a-5e356bff3b13</con:id><con:isGroup>false</con:isGroup><con:sourceId>88eaedaf-8d24-4cdd-9233-69adfbaa263b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import se.skl.rivta.testsupport.soapui.validation.SchematronValidator
+import se.skl.rivta.testsupport.soapui.ContextHelper
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def contextHelper = new ContextHelper(context)
+def validator = new SchematronValidator()
+
+def constraintsPath = messageExchange.modelItem.testStep.testCase.testSuite.project.getPropertyValue( "constraintsPath" )
+
+def failures = validator.validateMessage(messageExchange.response.responseContent,
+	new File(utils.projectPath + File.separator + "constraints.xml"))
+
+failures.each { failure ->
+    log.error ("Failure $failure.text")
+}
+
+assert (failures.isEmpty())</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure correct patientId" id="81887f38-60be-4ad3-aeeb-2e094a989afd"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>5df9acf5-02e9-4957-bf9f-e713cffb2c51</con:id><con:isGroup>false</con:isGroup><con:sourceId>88eaedaf-8d24-4cdd-9233-69adfbaa263b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def records = holder.getDomNodes(context.expand('${#TestSuite#headerNode}'))
+
+if (records.length == 0) {
+    contextHelper.fail("Response contains no records.")
+    return
+}
+
+// Compare patientId and patientIdType in the response to what we have in data.xml for this test case.
+records.each {c ->
+    def recordHolder = new XmlHolder( c )
+    holder.namespaces.each {key, value -> recordHolder.namespaces[key] = value}
+    def documentId = recordHolder.getNodeValue('//urn1:documentId')
+    def patientId = recordHolder.getNodeValue('//urn1:patientId/urn1:id')
+    def patientIdType = recordHolder.getNodeValue('//urn1:patientId/urn1:type')
+    if (patientId != context.patientId || patientIdType != context.patientIdType) {
+        contextHelper.fail("Response contains a record with other PatientId. PatientId: ${patientId}, Type: ${patientIdType} DocumentId: ${documentId}")
+            }
+}
+        </scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure correct careUnitId's" id="f9b31154-86fb-4668-b48f-0ae105fa5e19"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>07788533-9a11-4b17-8b7f-31b42e33ab5b</con:id><con:isGroup>false</con:isGroup><con:sourceId>88eaedaf-8d24-4cdd-9233-69adfbaa263b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def careUnitIds = holder.getNodeValues(context.expand('${#TestSuite#headerNode}') + '/urn1:accountableHealthcareProfessional/urn1:healthcareProfessionalCareUnitHSAId') as List
+def expectedCareUnitIds = context.expectedCareUnitIds? context.expectedCareUnitIds.tokenize(',') : []
+def unexpectedCareUnitIds = context.unexpectedCareUnitIds ? context.unexpectedCareUnitIds.tokenize(',') : []
+
+log.debug("Assert careUnitIds, unexpectedCareUnitIds:$unexpectedCareUnitIds,expectedCareUnitIds, $expectedCareUnitIds,\nfound careUnitIds $careUnitIds")
+
+if(expectedCareUnitIds.isEmpty()) {
+    log.error("Your test data is invalid, expectedCareUnitIds may not be empty")
+    assert 0 > 1
+}
+
+def missingExpectedIds = []
+def extraUnexpectedIds= []
+
+careUnitIds.each {id ->
+    if (unexpectedCareUnitIds.contains(id)) {
+        extraUnexpectedIds.add(id)
+    }
+}
+
+expectedCareUnitIds.each {id ->
+    if (!careUnitIds.contains(id)) {
+        missingExpectedIds.add(id)
+    }
+}
+
+if(!missingExpectedIds.isEmpty() || !extraUnexpectedIds.isEmpty()) {
+    log.error("Response contains unexpected CareUnitIds: $extraUnexpectedIds and/or does not contain  expected CareUnitIds: $missingExpectedIds")
+    assert(false)
+}
+</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure correct documentId's" id="3f0bbcd6-57d9-4502-8020-5645261b09e9"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>0dabdcc8-f375-4b22-89a7-ad5739d6d60a</con:id><con:isGroup>false</con:isGroup><con:sourceId>88eaedaf-8d24-4cdd-9233-69adfbaa263b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+import se.skl.rivta.testsupport.soapui.ContextHelper
+
+def contextHelper = new ContextHelper(context)
+def holder = new XmlHolder( messageExchange.response.responseContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+// Fetch properties from TestSuite Custom properties
+holder.namespaces['urn'] = context.expand('${#TestSuite#urn}')
+holder.namespaces['urn1'] = context.expand('${#TestSuite#urn1}')
+
+def documentIds = holder.getNodeValues(context.expand('${#TestSuite#headerNode}') + '/urn1:documentId') as List
+if (documentIds.size == 0 || documentIds == null) {
+    contextHelper.fail("Response contains no documentId's.")
+    return
+}
+
+def expectedDocumentIds = context.expectedDocumentIds ? context.expectedDocumentIds.tokenize(',') : []
+def unexpectedDocumentIds = context.unexpectedDocumentIds ? context.unexpectedDocumentIds.tokenize(',') : []
+
+documentIds.each {id ->
+    if (unexpectedDocumentIds.contains(id)) {
+        contextHelper.fail("Response contains a unexpected record. DocumentId: $id")
+    }
+}
+expectedDocumentIds.each {id ->
+    if (!documentIds.contains(id)) {
+        contextHelper.fail("Response does not contain a expected record. DocumentId: $id")
+    }
+} </scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure result.logId is returned" id="06ffd39d-909c-42aa-b78e-341b5142dbf2"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>b773b5b3-0cdf-41b6-9ecf-dd9b246ae1ac</con:id><con:isGroup>false</con:isGroup><con:sourceId>88eaedaf-8d24-4cdd-9233-69adfbaa263b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:logId[matches(., '.*')]</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure result.resultCode is OK"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>2bc7beb0-c4bc-4803-b5c4-887a129fd0be</con:id><con:isGroup>false</con:isGroup><con:sourceId>88eaedaf-8d24-4cdd-9233-69adfbaa263b</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace urn='${#TestSuite#urn}';
+declare namespace urn1='${#TestSuite#urn1}';
+//urn:GetMedicationHistoryResponse[1]/urn:result[1]/urn1:resultCode[1]/text() = "OK"</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Active Medication" searchProperties="true" id="95b01e67-863e-4aac-a047-00998c960b11"><con:settings/><con:testStep type="groovy" name="Read data" id="4f1d332f-305d-48f7-9e71-39420572092c"><con:settings/><con:config><script>import se.skl.rivta.testsupport.soapui.datasource.XmlDataReader
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def dataFile = new File(utils.projectPath + "/data.xml")
+def source = new XmlDataReader(context, dataFile)
+
+source.load("Date Boundaries")</script></con:config></con:testStep><con:testStep type="request" name="WHEN calling GetMedicationHistory" id="eb746014-4896-4da9-b8e7-d72317c6828d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetMedicationHistoryResponderBinding</con:interface><con:operation>GetMedicationHistory</con:operation><con:request name="WHEN calling GetMedicationHistory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-mock-response" value="Active Medication"/>
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="${httpHeaderHsaId}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>${logicalAddress}</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetMedicationHistory>
+         <urn1:patientId>
+            <urn2:id>${patientId}</urn2:id>
+            <urn2:type>${patientIdType}</urn2:type>
+         </urn1:patientId>
+         <urn1:prescriptionStatus>Active</urn1:prescriptionStatus>
+      </urn1:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="9fbd7439-530a-4ec3-9dcd-902ced8c6656"/><con:assertion type="Schema Compliance" id="d017fb69-6c88-4397-8687-7b78550f778a"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="8956f8e5-423b-431c-a760-0feb7dae4079"/><con:assertion type="Response SLA Assertion" name="Response SLA" id="d8137bb9-8b93-4cd1-9546-9a87ba2fd925"><con:configuration><SLA>15000</SLA></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="assertionteststep" name="THEN ensure all schematron rules passes"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>d5d93904-9431-49a6-8895-24cf73adf8ff</con:id><con:isGroup>false</con:isGroup><con:sourceId>eb746014-4896-4da9-b8e7-d72317c6828d</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="GroovyScriptAssertion" name="Script Assertion"><con:configuration><scriptText>import se.skl.rivta.testsupport.soapui.validation.SchematronValidator
+import se.skl.rivta.testsupport.soapui.ContextHelper
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def contextHelper = new ContextHelper(context)
+def validator = new SchematronValidator()
+
+def constraintsPath = messageExchange.modelItem.testStep.testCase.testSuite.project.getPropertyValue( "constraintsPath" )
+
+def failures = validator.validateMessage(messageExchange.response.responseContent,
+	new File(utils.projectPath + File.separator + "constraints.xml"))
+
+failures.each { failure ->
+    log.error ("Failure $failure.text")
+}
+
+assert (failures.isEmpty())</scriptText></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="assertionteststep" name="AND ensure document id's are valid"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="assertionteststep" name="AND ensure a result.logId is returned"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="assertionteststep" name="AND ensure result.resultCode equals OK"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties><con:property><con:name>urn</con:name><con:value>urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2</con:value></con:property><con:property><con:name>urn1</con:name><con:value>urn:riv:clinicalprocess:activityprescription:actoutcome:2</con:value></con:property><con:property><con:name>headerNode</con:name><con:value>/soapenv:Envelope/soapenv:Body/urn:GetMedicationHistoryResponse/urn:medicationMedicalRecord/urn1:medicationMedicalRecordHeader</con:value></con:property></con:properties><con:reportParameters/></con:testSuite><con:testSuite name="Fault tests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Verify SourceSystemHSAid and CareContactId" searchProperties="true" id="b3b10d55-2bb8-4a0b-8f6c-35b49b30701a"><con:settings/><con:testStep type="groovy" name="Read data"><con:settings/><con:config><script>import se.skl.rivta.testsupport.soapui.datasource.XmlDataReader
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def dataFile = new File(utils.projectPath + "/data.xml")
+def source = new XmlDataReader(context, dataFile)
+
+source.load("CareContactId and SourceSystemHsaId")</script></con:config></con:testStep><con:testStep type="request" name="Call GetVaccinationHistory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetMedicationHistoryResponderBinding</con:interface><con:operation>GetMedicationHistory</con:operation><con:request name="Call GetVaccinationHistory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-mock-response" value="SoapFault"/>
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="${httpHeaderHsaId}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:1" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:1">
+   <soapenv:Header>
+      <urn:LogicalAddress>${logicalAddress}</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn3:GetMedicationHistory xmlns:urn3="urn:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:1">
+         <urn3:patientId>
+            <urn2:id>?</urn2:id>
+            <urn2:type>?</urn2:type>
+         </urn3:patientId>
+      </urn3:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>15000</SLA></con:configuration></con:assertion><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:riv:ehr:patientsummary:GetCareContactsResponder:2:GetCareContacts" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Verify SourceSystemHSAid and LogicalAddress" searchProperties="true" id="cd83abac-7f46-4955-b88d-e5d52d4fd439"><con:settings/><con:testStep type="groovy" name="Read data"><con:settings/><con:config><script>import se.skl.rivta.testsupport.soapui.datasource.XmlDataReader
+import com.eviware.soapui.support.GroovyUtils
+
+def utils = new GroovyUtils(context)
+def dataFile = new File(utils.projectPath + "/data.xml")
+def source = new XmlDataReader(context, dataFile)
+
+source.load("SourceSystemHsaId and LogicalAddress")</script></con:config></con:testStep><con:testStep type="request" name="Call GetVaccinationHistory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetMedicationHistoryResponderBinding</con:interface><con:operation>GetMedicationHistory</con:operation><con:request name="Call GetVaccinationHistory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-mock-response" value="SoapFault"/>
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="${httpHeaderHsaId}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${webServiceUrl}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:1" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:1">
+   <soapenv:Header>
+      <urn:LogicalAddress>${logicalAddress}</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn3:GetMedicationHistory xmlns:urn3="urn:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:1">
+         <urn3:patientId>
+            <urn2:id>?</urn2:id>
+            <urn2:type>?</urn2:type>
+         </urn3:patientId>
+      </urn3:GetMedicationHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>15000</SLA></con:configuration></con:assertion><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:riv:ehr:patientsummary:GetCareContactsResponder:2:GetCareContacts" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>
