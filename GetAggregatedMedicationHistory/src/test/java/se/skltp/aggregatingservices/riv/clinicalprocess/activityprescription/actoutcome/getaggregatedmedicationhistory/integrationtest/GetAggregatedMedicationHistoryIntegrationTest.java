@@ -1,6 +1,5 @@
 package se.skltp.aggregatingservices.riv.clinicalprocess.activityprescription.actoutcome.getaggregatedmedicationhistory.integrationtest;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.*;
 import static se.skltp.agp.riv.interoperability.headers.v1.CausingAgentEnum.VIRTUALIZATION_PLATFORM;
 import static se.skltp.agp.test.consumer.AbstractTestConsumer.SAMPLE_ORIGINAL_CONSUMER_HSAID;
@@ -28,7 +27,7 @@ import org.slf4j.LoggerFactory;
 import org.soitoolkit.commons.mule.util.RecursiveResourceBundle;
 
 import riv.clinicalprocess.activityprescription.actoutcome.getmedicationhistoryresponder.v2.GetMedicationHistoryResponseType;
-
+import riv.clinicalprocess.activityprescription.actoutcome.v2.MedicationMedicalRecordType;
 import se.skltp.aggregatingservices.riv.clinicalprocess.activityprescription.actoutcome.getaggregatedmedicationhistory.GetAggregatedMedicationHistoryMuleServer;
 import se.skltp.agp.riv.interoperability.headers.v1.ProcessingStatusRecordType;
 import se.skltp.agp.riv.interoperability.headers.v1.ProcessingStatusType;
@@ -169,26 +168,12 @@ public class GetAggregatedMedicationHistoryIntegrationTest extends AbstractAggre
 
     	// Verify the response size and content
     	GetMedicationHistoryResponseType response = responseHolder.value;
-    	int expextedResponseSize = testData.length;
-
-
-        // TODO: CHANGE GENERATED SAMPLE CODE - START
-        if (1==1) throw new UnsupportedOperationException("Not yet implemented");
-        /*
-
-		assertEquals(expextedResponseSize, response.getRequestActivity().size());
-		
-		for (int i = 0; i < testData.length; i++) {
-			RequestActivityType responseElement = response.getRequestActivity().get(i);
-			assertEquals(registeredResidentId, responseElement.getSubjectOfCareId());		
-
-			assertEquals(testData[i].getExpectedBusinessObjectId(), responseElement.getSenderRequestId());
-			assertEquals(testData[i].getExpectedLogicalAddress(), responseElement.getCareUnit());		
-		}
-
-        */
-        // TODO: CHANGE GENERATED SAMPLE CODE - END
-
+    	assertEquals(testData.clone().length, response.getMedicationMedicalRecord().size());
+    		
+    	
+    	for(MedicationMedicalRecordType r : response.getMedicationMedicalRecord()) {
+    		assertEquals(registeredResidentId, r.getMedicationMedicalRecordHeader().getPatientId().getId());
+    	}
 
     	// Verify the size of the processing status and return it for further analysis
 		ProcessingStatusType statusList = processingStatusHolder.value;

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.mule.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.soitoolkit.commons.mule.util.ThreadSafeSimpleDateFormat;
@@ -44,21 +45,17 @@ public class RequestListFactoryImpl implements RequestListFactory {
 
 		GetMedicationHistoryType originalRequest = (GetMedicationHistoryType)qo.getExtraArg();
 
-		// TODO: CHANGE GENERATED SAMPLE CODE - START
-        if (1==1) throw new UnsupportedOperationException("Not yet implemented");
-
 		Date reqFrom = null;
 		Date reqTo   = null;
 		List<String> reqCareUnitList = null;
 
-        /*
+		if(originalRequest.getDatePeriod() != null) {
+			reqFrom = parseTs(originalRequest.getDatePeriod().getStart());
+			reqTo   = parseTs(originalRequest.getDatePeriod().getEnd());
+		}
+		
+		reqCareUnitList = originalRequest.getCareUnitHSAId();
 
-		reqFrom = parseTs(originalRequest.getFromDate());
-		reqTo   = parseTs(originalRequest.getToDate());
-		reqCareUnitList = originalRequest.getCareUnitId();
-
-        */
-		// TODO: CHANGE GENERATED SAMPLE CODE - END
 
 
 		FindContentResponseType eiResp = (FindContentResponseType)src;
@@ -69,16 +66,8 @@ public class RequestListFactoryImpl implements RequestListFactory {
 		Map<String, List<String>> sourceSystem_pdlUnitList_map = new HashMap<String, List<String>>();
 		
 		for (EngagementType inEng : inEngagements) {
-
-			// Filter
-
-			// TODO: CHANGE GENERATED SAMPLE CODE - START
-            if (1==1) throw new UnsupportedOperationException("Not yet implemented");
-
 			if (isBetween(reqFrom, reqTo, inEng.getMostRecentContent()) &&
 				isPartOf(reqCareUnitList, inEng.getLogicalAddress())) {
-
-			// TODO: CHANGE GENERATED SAMPLE CODE - END
 
 				// Add pdlUnit to source system
 				log.debug("Add SS: {} for PDL unit: {}", inEng.getSourceSystem(), inEng.getLogicalAddress());
@@ -92,27 +81,9 @@ public class RequestListFactoryImpl implements RequestListFactory {
 		List<Object[]> reqList = new ArrayList<Object[]>();
 		
 		for (Entry<String, List<String>> entry : sourceSystem_pdlUnitList_map.entrySet()) {
-
 			String sourceSystem = entry.getKey();
-            GetMedicationHistoryType request = new GetMedicationHistoryType();
-
-
-            // TODO: CHANGE GENERATED SAMPLE CODE - START
-            if (1==1) throw new UnsupportedOperationException("Not yet implemented");
-            /*
-
-			if (log.isInfoEnabled()) log.info("Calling source system using logical address {} for subject of care id {}", sourceSystem, originalRequest.getSubjectOfCareId());
-
- 			List<String> careUnitList = entry.getValue();
-
-			request.setSubjectOfCareId(originalRequest.getSubjectOfCareId());
-			request.getCareUnitId().addAll(careUnitList);
-			request.setFromDate(originalRequest.getFromDate());
-			request.setToDate(originalRequest.getToDate());
-
-			*/
-			// TODO: CHANGE GENERATED SAMPLE CODE - END
-
+			if (log.isInfoEnabled()) log.info("Calling source system using logical address {} for subject of care id {}", sourceSystem, originalRequest.getPatientId().getId());
+			final GetMedicationHistoryType request = originalRequest;
 			Object[] reqArr = new Object[] {sourceSystem, request};
 			
 			reqList.add(reqArr);
@@ -158,6 +129,16 @@ public class RequestListFactoryImpl implements RequestListFactory {
 		
 		return careUnitIdList.contains(careUnit);
 	}
+	
+	boolean isPartOf(String careUnitId, String careUnit) {
+        
+        log.debug("Check careunit {} equals expected {}", careUnitId, careUnit);
+       
+        if (StringUtils.isBlank(careUnitId)) return true;
+       
+        return careUnitId.equals(careUnit);
+}
+
 
 	void addPdlUnitToSourceSystem(Map<String, List<String>> sourceSystem_pdlUnitList_map, String sourceSystem, String pdlUnitId) {
 		List<String> careUnitList = sourceSystem_pdlUnitList_map.get(sourceSystem);

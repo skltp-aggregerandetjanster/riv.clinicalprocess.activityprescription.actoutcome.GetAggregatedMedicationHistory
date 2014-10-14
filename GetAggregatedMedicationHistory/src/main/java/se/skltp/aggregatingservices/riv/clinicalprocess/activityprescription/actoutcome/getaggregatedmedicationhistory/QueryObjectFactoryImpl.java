@@ -20,7 +20,6 @@ public class QueryObjectFactoryImpl implements QueryObjectFactory {
 		this.eiServiceDomain = eiServiceDomain;
 	}
 
-	@SuppressWarnings("unused")
 	private String eiCategorization;
 	public void setEiCategorization(String eiCategorization) {
 		this.eiCategorization = eiCategorization;
@@ -31,28 +30,23 @@ public class QueryObjectFactoryImpl implements QueryObjectFactory {
 	 * 
 	 * 1. subjectOfCareId --> registeredResidentIdentification
 	 * 2. "riv:clinicalprocess:activityprescription:actoutcome" --> serviceDomain
+	 * 3. "caa-gmh" --> categorization
 	 */
 	public QueryObject createQueryObject(Node node) {
 		
-		GetMedicationHistoryType request = (GetMedicationHistoryType)ju.unmarshal(node);
+		final GetMedicationHistoryType request = (GetMedicationHistoryType)ju.unmarshal(node);
 		
-
-        // TODO: CHANGE GENERATED SAMPLE CODE - START
-        if (1==1) throw new UnsupportedOperationException("Not yet implemented");
-        /*
-
-		if (log.isDebugEnabled()) log.debug("Transformed payload for pid: {}", request.getSubjectOfCareId());
-
-		FindContentType fc = new FindContentType();		
-		fc.setRegisteredResidentIdentification(request.getSubjectOfCareId());
+		if(log.isDebugEnabled() && request.getPatientId() != null) {
+			log.debug("Transformed payload for pid: {}", request.getPatientId().getId());
+		}
+		
+		final FindContentType fc = new FindContentType();
+		if(request.getPatientId() != null) {
+			fc.setRegisteredResidentIdentification(request.getPatientId().getId());
+		}
 		fc.setServiceDomain(eiServiceDomain);
+		fc.setCategorization(eiCategorization);
 		
-		QueryObject qo = new QueryObject(fc, request);
-		return qo;
-
-        */
-		return null;
-        // TODO: CHANGE GENERATED SAMPLE CODE - END
-
+		return new QueryObject(fc, request);
 	}
 }

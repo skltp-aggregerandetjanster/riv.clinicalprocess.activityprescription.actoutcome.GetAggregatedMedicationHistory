@@ -20,29 +20,17 @@ public class ResponseListFactoryImpl implements ResponseListFactory {
 	
 	@Override
 	public String getXmlFromAggregatedResponse(QueryObject queryObject, List<Object> aggregatedResponseList) {
-		GetMedicationHistoryResponseType aggregatedResponse = new GetMedicationHistoryResponseType();
-
-
-        // TODO: CHANGE GENERATED SAMPLE CODE - START
-        if (1==1) throw new UnsupportedOperationException("Not yet implemented");
-        /*
-
-	    for (Object object : aggregatedResponseList) {
-	    	GetAggregatedMedicationHistoryResponseType response = (GetAggregatedMedicationHistoryResponseType)object;
-			aggregatedResponse.getRequestActivity().addAll(response.getRequestActivity());
+		final GetMedicationHistoryResponseType aggregatedResponse = new GetMedicationHistoryResponseType();
+		for(Object obj : aggregatedResponseList) {
+			final GetMedicationHistoryResponseType response = 
+					(GetMedicationHistoryResponseType) obj;
+			aggregatedResponse.getMedicationMedicalRecord().addAll(response.getMedicationMedicalRecord());
 		}
-
-	    if (log.isInfoEnabled()) {
-    		String subjectOfCareId = queryObject.getFindContent().getRegisteredResidentIdentification();
-        	log.info("Returning {} aggregated remisstatus for subject of care id {}", aggregatedResponse.getRequestActivity().size() ,subjectOfCareId);
-        }
-
-        */
-        // TODO: CHANGE GENERATED SAMPLE CODE - END
-
-
-        // Since the class GetAggregatedMedicationHistoryResponseType don't have an @XmlRootElement annotation
-        // we need to use the ObjectFactory to add it.
+		if(log.isInfoEnabled()) {
+			final String subjectOfCareId = queryObject.getFindContent().getRegisteredResidentIdentification();
+			log.info("Returning {} aggregated medication history for subject of care id {}",
+					aggregatedResponse.getMedicationMedicalRecord().size(), subjectOfCareId);
+		}
         return jaxbUtil.marshal(OF.createGetMedicationHistoryResponse(aggregatedResponse));
 	}
 }
