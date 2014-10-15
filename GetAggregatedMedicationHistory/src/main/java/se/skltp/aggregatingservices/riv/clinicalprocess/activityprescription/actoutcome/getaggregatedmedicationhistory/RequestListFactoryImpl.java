@@ -44,18 +44,8 @@ public class RequestListFactoryImpl implements RequestListFactory {
 	public List<Object[]> createRequestList(QueryObject qo, FindContentResponseType src) {
 
 		GetMedicationHistoryType originalRequest = (GetMedicationHistoryType)qo.getExtraArg();
-
-		Date reqFrom = null;
-		Date reqTo   = null;
-		List<String> reqCareUnitList = null;
-
-		if(originalRequest.getDatePeriod() != null) {
-			reqFrom = parseTs(originalRequest.getDatePeriod().getStart());
-			reqTo   = parseTs(originalRequest.getDatePeriod().getEnd());
-		}
 		
-		reqCareUnitList = originalRequest.getCareUnitHSAId();
-
+		final String reqCareUnit = originalRequest.getSourceSystemHSAId();
 
 
 		FindContentResponseType eiResp = (FindContentResponseType)src;
@@ -66,9 +56,7 @@ public class RequestListFactoryImpl implements RequestListFactory {
 		Map<String, List<String>> sourceSystem_pdlUnitList_map = new HashMap<String, List<String>>();
 		
 		for (EngagementType inEng : inEngagements) {
-			if (isBetween(reqFrom, reqTo, inEng.getMostRecentContent()) &&
-				isPartOf(reqCareUnitList, inEng.getLogicalAddress())) {
-
+			if(isPartOf(reqCareUnit, inEng.getLogicalAddress())) {
 				// Add pdlUnit to source system
 				log.debug("Add SS: {} for PDL unit: {}", inEng.getSourceSystem(), inEng.getLogicalAddress());
 				addPdlUnitToSourceSystem(sourceSystem_pdlUnitList_map, inEng.getSourceSystem(), inEng.getLogicalAddress());

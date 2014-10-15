@@ -10,7 +10,7 @@ import riv.clinicalprocess.activityprescription.actoutcome.getmedicationhistoryr
 import riv.clinicalprocess.activityprescription.actoutcome.getmedicationhistoryresponder.v2.GetMedicationHistoryType;
 import se.skltp.agp.test.producer.TestProducerDb;
 
-@WebService(serviceName = "GetMedicationHistoryResponderService", portName = "GetMedicationHistoryResponderPort", targetNamespace = "urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:1:rivtabp21", name = "GetMedicationHistoryInteraction")
+@WebService(serviceName = "GetMedicationHistoryResponderService", portName = "GetMedicationHistoryResponderPort", targetNamespace = "urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21", name = "GetMedicationHistoryInteraction")
 public class GetAggregatedMedicationHistoryTestProducer implements GetMedicationHistoryResponderInterface {
 
 	private static final Logger log = LoggerFactory.getLogger(GetAggregatedMedicationHistoryTestProducer.class);

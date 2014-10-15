@@ -31,6 +31,8 @@ public class QueryObjectFactoryImpl implements QueryObjectFactory {
 	 * 1. subjectOfCareId --> registeredResidentIdentification
 	 * 2. "riv:clinicalprocess:activityprescription:actoutcome" --> serviceDomain
 	 * 3. "caa-gmh" --> categorization
+	 * 4. SourceSystemHSAId --> LogicalAddress
+	 * 5. SourceSystemHSAId --> SourceSystem
 	 */
 	public QueryObject createQueryObject(Node node) {
 		
@@ -46,6 +48,8 @@ public class QueryObjectFactoryImpl implements QueryObjectFactory {
 		}
 		fc.setServiceDomain(eiServiceDomain);
 		fc.setCategorization(eiCategorization);
+		fc.setLogicalAddress(request.getSourceSystemHSAId());
+		fc.setSourceSystem(request.getSourceSystemHSAId());
 		
 		return new QueryObject(fc, request);
 	}

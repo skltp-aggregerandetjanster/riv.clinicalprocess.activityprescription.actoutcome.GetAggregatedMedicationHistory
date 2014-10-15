@@ -31,14 +31,15 @@ public class QueryObjectFactoryTest {
 	private static final ObjectFactory objFactory = new ObjectFactory();
 	
 	
-	private static final String TEST_DATA_1 = UUID.randomUUID().toString();
-	private static final String TEST_DATA_2 = UUID.randomUUID().toString();
-	private static final String TEST_DATA_3 = UUID.randomUUID().toString();
+	private static final String CATEGORIZATION = UUID.randomUUID().toString();
+	private static final String SERVICE_DOMAIN = UUID.randomUUID().toString();
+	private static final String SUBJECTOFCARE = UUID.randomUUID().toString();
+	private static final String SOURCESYSTEMHSAID = UUID.randomUUID().toString();
 	
 	@BeforeClass
 	public static void init() {
-		testObject.setEiCategorization(TEST_DATA_1);
-		testObject.setEiServiceDomain(TEST_DATA_2);
+		testObject.setEiCategorization(CATEGORIZATION);
+		testObject.setEiServiceDomain(SERVICE_DOMAIN);
 	}
 	
 	@Test
@@ -46,17 +47,18 @@ public class QueryObjectFactoryTest {
 		final GetMedicationHistoryType type = new GetMedicationHistoryType();
 		
 		final PersonIdType person = new PersonIdType();
-		person.setId(TEST_DATA_3);
+		person.setId(SUBJECTOFCARE);
 		type.setPatientId(person);
+		type.setSourceSystemHSAId(SOURCESYSTEMHSAID);
 		
 		final Node node = createNode(type);
 		final FindContentType findContent = testObject.createQueryObject(node).getFindContent();
-		assertEquals(TEST_DATA_1, findContent.getCategorization());
-		assertEquals(TEST_DATA_2, findContent.getServiceDomain());
-		assertEquals(TEST_DATA_3, findContent.getRegisteredResidentIdentification());
+		assertEquals(CATEGORIZATION, findContent.getCategorization());
+		assertEquals(SERVICE_DOMAIN, findContent.getServiceDomain());
+		assertEquals(SUBJECTOFCARE, findContent.getRegisteredResidentIdentification());
+		assertEquals(SOURCESYSTEMHSAID, findContent.getLogicalAddress());
+		assertEquals(SOURCESYSTEMHSAID, findContent.getSourceSystem());
 		
-		assertNull(findContent.getLogicalAddress());
-		assertNull(findContent.getSourceSystem());
 		assertNull(findContent.getBusinessObjectInstanceIdentifier());
 		assertNull(findContent.getClinicalProcessInterestId());
 		assertNull(findContent.getDataController());
