@@ -13,6 +13,7 @@ import riv.clinicalprocess.activityprescription.actoutcome.getmedicationhistoryr
 import riv.clinicalprocess.activityprescription.actoutcome.v2.AdditionalPatientInformationType;
 import riv.clinicalprocess.activityprescription.actoutcome.v2.CVType;
 import riv.clinicalprocess.activityprescription.actoutcome.v2.HealthcareProfessionalType;
+import riv.clinicalprocess.activityprescription.actoutcome.v2.IIType;
 import riv.clinicalprocess.activityprescription.actoutcome.v2.MedicationMedicalRecordBodyType;
 import riv.clinicalprocess.activityprescription.actoutcome.v2.MedicationMedicalRecordType;
 import riv.clinicalprocess.activityprescription.actoutcome.v2.MedicationPrescriptionType;
@@ -26,8 +27,7 @@ import se.skltp.agp.test.producer.TestProducerDb;
 public class GetAggregatedMedicationHistoryTestProducerDb extends TestProducerDb {
 
 	private static final Logger log = LoggerFactory.getLogger(GetAggregatedMedicationHistoryTestProducerDb.class);
-	private static final ThreadSafeSimpleDateFormat df = new ThreadSafeSimpleDateFormat("YYYYMMDDhhmmss");
-
+	private static final ThreadSafeSimpleDateFormat tf = new ThreadSafeSimpleDateFormat("yyyyMMddhhmmss");
 	
 	@Override
 	public Object createResponse(Object... responseItems) {
@@ -59,7 +59,7 @@ public class GetAggregatedMedicationHistoryTestProducerDb extends TestProducerDb
 		final PatientSummaryHeaderType header = new PatientSummaryHeaderType();
 		header.setDocumentId(UUID.randomUUID().toString());
 		header.setSourceSystemHSAId(logicalAddress);
-		header.setDocumentTime(df.format(new Date()));
+		header.setDocumentTime(tf.format(new Date()));
 		
 		final PersonIdType pp = new PersonIdType();
 		pp.setId(registeredResidentId);
@@ -67,7 +67,7 @@ public class GetAggregatedMedicationHistoryTestProducerDb extends TestProducerDb
 		header.setPatientId(pp);
 		
 		final HealthcareProfessionalType hp = new HealthcareProfessionalType();
-		hp.setAuthorTime(df.format(new Date()));
+		hp.setAuthorTime(tf.format(new Date()));
 		hp.setHealthcareProfessionalCareGiverHSAId(logicalAddress);
 		
 		final OrgUnitType ou = new OrgUnitType();
@@ -83,16 +83,14 @@ public class GetAggregatedMedicationHistoryTestProducerDb extends TestProducerDb
 		
 		
 		final MedicationMedicalRecordBodyType body = new MedicationMedicalRecordBodyType();
-		final AdditionalPatientInformationType addp = new AdditionalPatientInformationType();
-		addp.setDateOfBirth(registeredResidentId);
-		body.setAdditionalPatientInformation(addp);
 		final MedicationPrescriptionType mpt = new MedicationPrescriptionType();
-
+		mpt.setPrescriptionId(iiType());
 		mpt.setTypeOfPrescription(TypeOfPrescriptionEnum.UTSÄTTNING);
 		mpt.setPrescriptionStatus(generateCVType());
 		mpt.getPrincipalPrescriptionReason().add(generateReasonType());
 		
 		body.setMedicationPrescription(mpt);
+		
 		mm.setMedicationMedicalRecordHeader(header);
 		mm.setMedicationMedicalRecordBody(body);
 		return mm;
@@ -107,6 +105,13 @@ public class GetAggregatedMedicationHistoryTestProducerDb extends TestProducerDb
 		cvType.setDisplayName("DisplayName");
 		cvType.setOriginalText("OriginalText");
 		return cvType;
+	}
+	
+	protected IIType iiType() {
+		final IIType ii = new IIType();
+		ii.setExtension("iiExtension");
+		ii.setRoot("iiRoot");
+		return ii;
 	}
 	
 	protected PrescriptionReasonType generateReasonType() {
