@@ -22,6 +22,9 @@ public class GetAggregatedMedicationHistoryTestProducer implements GetMedication
 
 	public GetMedicationHistoryResponseType getMedicationHistory(String logicalAddress, GetMedicationHistoryType request) {
         final GetMedicationHistoryResponseType response = (GetMedicationHistoryResponseType)testDb.processRequest(logicalAddress, request.getPatientId().getId());
+        if(response == null) {
+        	return new GetMedicationHistoryResponseType();
+        }
         return response;
 	}
 }
