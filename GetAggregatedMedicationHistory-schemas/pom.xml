@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
 DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOING!
 [soi-toolkit.gen.version=0.6.2-SNAPSHOT]
 [soi-toolkit.gen.type=schemas]
@@ -9,11 +9,11 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-  
+
 	<parent>
 		<groupId>se.skltp.aggregatingservices.riv.clinicalprocess.activityprescription.actoutcome</groupId>
 		<artifactId>GetAggregatedMedicationHistory-parent</artifactId>
-		<version>1.0.0-RC2-SNAPSHOT</version>
+		<version>1.0.0-RC2</version>
 	</parent>
 
 	<artifactId>GetAggregatedMedicationHistory-schemas</artifactId>
@@ -35,7 +35,7 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
       <scope>provided</scope>
     </dependency>
   </dependencies>
- 
+
  	<build>
 		<plugins>
 			<plugin>
@@ -56,33 +56,33 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
 	                            <wsdlOption>
 									<wsdl>${schema.path}/TD_CLINICALPROCESS_ACTIVITYPRESCRIPTION_ACTOUTCOME_2.0_RC1/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryInteraction_2.0_RIVTABP21.wsdl</wsdl>
 									<extraargs>
-									<extraarg>-validate</extraarg> 
+									<extraarg>-validate</extraarg>
 									<extraarg>-p</extraarg>
-									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21=riv.clinicalprocess.activityprescription.actoutcome.getmedicationhistory.v2.rivtabp21</extraarg> 
+									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21=riv.clinicalprocess.activityprescription.actoutcome.getmedicationhistory.v2.rivtabp21</extraarg>
 									<extraarg>-p</extraarg>
-									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2=riv.clinicalprocess.activityprescription.actoutcome.getmedicationhistoryresponder.v2</extraarg> 
+									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2=riv.clinicalprocess.activityprescription.actoutcome.getmedicationhistoryresponder.v2</extraarg>
 									<extraarg>-p</extraarg>
-									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:2=riv.clinicalprocess.activityprescription.actoutcome.v2</extraarg> 
+									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:2=riv.clinicalprocess.activityprescription.actoutcome.v2</extraarg>
 									<extraarg>-p</extraarg>
-									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2=riv.clinicalprocess.activityprescription.actoutcome.enums.v2</extraarg> 
+									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2=riv.clinicalprocess.activityprescription.actoutcome.enums.v2</extraarg>
 									<extraarg>-p</extraarg>
-									<extraarg>urn:riv:itintegration:registry:1=riv.itintegration.registry.v1</extraarg> 
+									<extraarg>urn:riv:itintegration:registry:1=riv.itintegration.registry.v1</extraarg>
 									</extraargs>
 	            				</wsdlOption>
 	                            <wsdlOption>
 									<wsdl>${schema.path}/TD_CLINICALPROCESS_ACTIVITYPRESCRIPTION_ACTOUTCOME_2.0_RC1/interactions/GetVaccinationHistoryInteraction/GetVaccinationHistoryInteraction_2.0_RIVTABP21.wsdl</wsdl>
 									<extraargs>
-									<extraarg>-validate</extraarg> 
+									<extraarg>-validate</extraarg>
 									<extraarg>-p</extraarg>
-									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistory:2:rivtabp21=riv.clinicalprocess.activityprescription.actoutcome.getvaccinationhistory.v2.rivtabp21</extraarg> 
+									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistory:2:rivtabp21=riv.clinicalprocess.activityprescription.actoutcome.getvaccinationhistory.v2.rivtabp21</extraarg>
 									<extraarg>-p</extraarg>
-									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:2=riv.clinicalprocess.activityprescription.actoutcome.getvaccinationhistoryresponder.v2</extraarg> 
+									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:2=riv.clinicalprocess.activityprescription.actoutcome.getvaccinationhistoryresponder.v2</extraarg>
 									<extraarg>-p</extraarg>
-									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:2=riv.clinicalprocess.activityprescription.actoutcome.v2</extraarg> 
+									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:2=riv.clinicalprocess.activityprescription.actoutcome.v2</extraarg>
 									<extraarg>-p</extraarg>
-									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2=riv.clinicalprocess.activityprescription.actoutcome.enums.v2</extraarg> 
+									<extraarg>urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2=riv.clinicalprocess.activityprescription.actoutcome.enums.v2</extraarg>
 									<extraarg>-p</extraarg>
-									<extraarg>urn:riv:itintegration:registry:1=riv.itintegration.registry.v1</extraarg> 
+									<extraarg>urn:riv:itintegration:registry:1=riv.itintegration.registry.v1</extraarg>
 									</extraargs>
 	            				</wsdlOption>
 							</wsdlOptions>
@@ -123,5 +123,5 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
 
 		</plugins>
 	</build>
-  
+
 </project>
