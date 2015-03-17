@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
 DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOING!
 [soi-toolkit.gen.version=0.6.2-SNAPSHOT]
 [soi-toolkit.gen.type=services]
 [soi-toolkit.gen.createDate=2014-10-10T10:01:05.753+02:00]
 [soi-toolkit.gen.artifactId=GetAggregatedMedicationHistory]
 -->
-<project 
-	xmlns="http://maven.apache.org/POM/4.0.0" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>se.skltp.aggregatingservices.riv.clinicalprocess.activityprescription.actoutcome</groupId>
         <artifactId>GetAggregatedMedicationHistory-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0-RC2</version>
     </parent>
-    
+
     <artifactId>GetAggregatedMedicationHistory</artifactId>
     <packaging>mule</packaging>
     <name>GetAggregatedMedicationHistory</name>
 
     <properties>
-        <skltp.agp.version>1.2.1</skltp.agp.version>
-
+        <skltp.agp.version>1.2.3</skltp.agp.version>
     </properties>
-    
+
 	<dependencies>
         <dependency>
 		    <groupId>se.skltp.agp</groupId>
@@ -55,7 +51,7 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
 			<version>${soitoolkit.version}</version>
 			<type>pom</type>
 		</dependency>
-		
+
         <!-- TEST DEPENDENCIES -->
 
         <dependency>
@@ -86,8 +82,8 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
 			<scope>test</scope>
 			<version>1.8.5</version>
 		</dependency>
-	
-	</dependencies> 
+
+	</dependencies>
 
     <build>
         <resources>
@@ -100,7 +96,7 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
             </resource>
         </resources>
 
-		<plugins>   
+		<plugins>
             <plugin>
                 <!-- Add mule-nature to the eclipse-.project-file -->
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -194,11 +190,11 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
                     </exclusions>
                 </configuration>
             </plugin>
-            
+
             <plugin>
               <artifactId>maven-jar-plugin</artifactId>
               <configuration>
-                <!-- 
+                <!--
                  if no classifier is declared, then a mvn install results in a file in
                  the local repo: ic2-1.0.0-SNAPSHOT.mule
                  which is a jar-file - only strangely named and with a bad extension
