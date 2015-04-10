@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.soitoolkit.commons.mule.util.ThreadSafeSimpleDateFormat;
 
+import riv.clinicalprocess.activityprescription.actoutcome.enums.v2.PrescriptionStatusEnum;
 import riv.clinicalprocess.activityprescription.actoutcome.enums.v2.ResultCodeEnum;
 import riv.clinicalprocess.activityprescription.actoutcome.enums.v2.TypeOfPrescriptionEnum;
 import riv.clinicalprocess.activityprescription.actoutcome.getmedicationhistoryresponder.v2.GetMedicationHistoryResponseType;
@@ -81,16 +82,13 @@ public class GetAggregatedMedicationHistoryTestProducerDb extends TestProducerDb
 		
 		header.setAccountableHealthcareProfessional(hp);
 		
-		
 		final MedicationMedicalRecordBodyType body = new MedicationMedicalRecordBodyType();
 		final MedicationPrescriptionType mpt = new MedicationPrescriptionType();
 		mpt.setPrescriptionId(iiType());
-		mpt.setTypeOfPrescription(TypeOfPrescriptionEnum.UTSÄTTNING);
-		mpt.setPrescriptionStatus(generateCVType());
+		mpt.setTypeOfPrescription(TypeOfPrescriptionEnum.U);
+		mpt.setPrescriptionStatus(PrescriptionStatusEnum.ACTIVE);
 		mpt.getPrincipalPrescriptionReason().add(generateReasonType());
-		
 		body.setMedicationPrescription(mpt);
-		
 		mm.setMedicationMedicalRecordHeader(header);
 		mm.setMedicationMedicalRecordBody(body);
 		return mm;
