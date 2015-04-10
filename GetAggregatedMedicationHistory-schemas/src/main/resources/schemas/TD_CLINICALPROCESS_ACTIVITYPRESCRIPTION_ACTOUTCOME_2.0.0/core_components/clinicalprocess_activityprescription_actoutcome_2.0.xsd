@@ -21,7 +21,7 @@
   xmlns:tns="urn:riv:clinicalprocess:activityprescription:actoutcome:2"
   xmlns:codes="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2"
   targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:2"
-  elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+  elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0">
   <xs:import schemaLocation="./clinicalprocess_activityprescription_actoutcome_enum_2.0.xsd"
     namespace="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2"/>
   <xs:complexType name="VaccinationMedicalRecordType">
@@ -252,7 +252,7 @@
     <xs:sequence>
       <xs:element name="id" type="tns:IIType"/>
       <xs:element name="time" type="tns:TimeStampType" minOccurs="1"/>
-      <xs:element name="uri" type="xs:anyURI" minOccurs="1"/>
+      <xs:element name="type" type="xs:string" minOccurs="1"/>
       <xs:element name="informationOwner" type="tns:InformationOwnerType" minOccurs="1"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
@@ -297,9 +297,9 @@
     <xs:sequence>
       <xs:element name="prescriptionId" type="tns:IIType"/>
       <xs:element name="typeOfPrescription" type="codes:TypeOfPrescriptionEnum"/>
-      <xs:element name="prescriptionStatus" type="tns:CVType" minOccurs="1"/>
+      <xs:element name="prescriptionStatus" type="codes:PrescriptionStatusEnum" minOccurs="1"/>
       <xs:element name="prescriptionNote" type="xs:string" minOccurs="0"/>
-      <xs:element maxOccurs="unbounded" minOccurs="1" name="principalPrescriptionReason"
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="principalPrescriptionReason"
         type="tns:PrescriptionReasonType"/>
       <xs:element maxOccurs="unbounded" minOccurs="0" name="additionalPrescriptionReason"
         type="tns:PrescriptionReasonType"/>
@@ -497,7 +497,7 @@
       <xs:element name="doseStep" type="tns:PQType" minOccurs="1"/>
       <xs:element name="timeStep" type="tns:PQType" minOccurs="1"/>
       <xs:element name="rampStart" type="tns:RampEndpointType"/>
-      <xs:element name="rampStart" type="tns:RampEndpointType"/>
+      <xs:element name="rampEnd" type="tns:RampEndpointType"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
