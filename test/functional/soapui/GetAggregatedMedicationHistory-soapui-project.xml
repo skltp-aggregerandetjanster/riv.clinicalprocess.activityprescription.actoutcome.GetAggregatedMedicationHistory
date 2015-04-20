@@ -1011,9 +1011,9 @@
       </urn1:GetMedicationHistory>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:1:GetMedicationHistory"/><con:wsrmConfig version="1.2"/></con:call><con:call name="skltp-box 121212121212 - Tolvan Tolvansson"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
-  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="TEST"/>
   &lt;con:entry key="x-vp-sender-id" value="TEST"/>
-&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8084/GetAggregatedMedicationHistory/service/v1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
+  &lt;con:entry key="x-rivta-original-serviceconsumer-hsaid" value="TEST"/>
+&lt;/xml-fragment></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8084/GetAggregatedMedicationHistory/service/v2</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2" xmlns:urn2="urn:riv:clinicalprocess:activityprescription:actoutcome:2">
    <soapenv:Header>
       <urn:LogicalAddress>5515151551</urn:LogicalAddress>
    </soapenv:Header>
