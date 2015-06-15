@@ -12,42 +12,42 @@ import se.skltp.agp.service.api.QueryObjectFactory;
 
 public class QueryObjectFactoryImpl implements QueryObjectFactory {
 
-	private static final Logger log = LoggerFactory.getLogger(QueryObjectFactoryImpl.class);
-	private static final JaxbUtil ju = new JaxbUtil(GetMedicationHistoryType.class);
+    private static final Logger log = LoggerFactory.getLogger(QueryObjectFactoryImpl.class);
+    private static final JaxbUtil ju = new JaxbUtil(GetMedicationHistoryType.class);
 
-	private String eiServiceDomain;
-	public void setEiServiceDomain(String eiServiceDomain) {
-		this.eiServiceDomain = eiServiceDomain;
-	}
+    private String eiServiceDomain;
+    public void setEiServiceDomain(String eiServiceDomain) {
+        this.eiServiceDomain = eiServiceDomain;
+    }
 
-	private String eiCategorization;
-	public void setEiCategorization(String eiCategorization) {
-		this.eiCategorization = eiCategorization;
-	}
+    private String eiCategorization;
+    public void setEiCategorization(String eiCategorization) {
+        this.eiCategorization = eiCategorization;
+    }
 
-	/**
-	 * Transformerar GetAggregatedMedicationHistory request till EI FindContent request enligt:
-	 * 
-	 * 1. subjectOfCareId --> registeredResidentIdentification
-	 * 2. "riv:clinicalprocess:activityprescription:actoutcome" --> serviceDomain
-	 * 3. "caa-gmh" --> categorization
-	 * 4. sourceSytemHSAId --> sourceSystem
-	 */
-	public QueryObject createQueryObject(Node node) {
-		
-		final GetMedicationHistoryType request = (GetMedicationHistoryType)ju.unmarshal(node);
-		
-		if(log.isDebugEnabled() && request.getPatientId() != null) {
-			log.debug("Transformed payload for pid: {}", request.getPatientId().getId());
-		}
-		
-		final FindContentType fc = new FindContentType();
-		if(request.getPatientId() != null) {
-			fc.setRegisteredResidentIdentification(request.getPatientId().getId());
-		}
-		fc.setServiceDomain(eiServiceDomain);
-		fc.setCategorization(eiCategorization);
-		fc.setSourceSystem(request.getSourceSystemHSAId());
-		return new QueryObject(fc, request);
-	}
+    /**
+     * Transformerar GetAggregatedMedicationHistory request till EI FindContent request enligt:
+     * 
+     * 1.  subjectOfCareId                                      --> registeredResidentIdentification 
+     * 2. "riv:clinicalprocess:activityprescription:actoutcome" --> serviceDomain 
+     * 3. "caa-gmh"                                             --> categorization 
+     * 4. sourceSytemHSAId                                      --> sourceSystem
+     */
+    public QueryObject createQueryObject(Node node) {
+
+        final GetMedicationHistoryType request = (GetMedicationHistoryType) ju.unmarshal(node);
+
+        if (log.isDebugEnabled() && request.getPatientId() != null) {
+            log.debug("Transformed payload for pid: {}", request.getPatientId().getId());
+        }
+
+        final FindContentType fc = new FindContentType();
+        if (request.getPatientId() != null) {
+            fc.setRegisteredResidentIdentification(request.getPatientId().getId());
+        }
+        fc.setServiceDomain(eiServiceDomain);
+        fc.setCategorization(eiCategorization);
+        fc.setSourceSystem(request.getSourceSystemHSAId());
+        return new QueryObject(fc, request);
+    }
 }
