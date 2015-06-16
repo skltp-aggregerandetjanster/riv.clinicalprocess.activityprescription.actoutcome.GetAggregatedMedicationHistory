@@ -21,7 +21,7 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
   <name>GetAggregatedMedicationHistory</name>
 
   <properties>
-    <skltp.agp.version>1.2.3</skltp.agp.version>
+    <skltp.agp.version>1.3.1</skltp.agp.version>
   </properties>
 
   <dependencies>
@@ -209,7 +209,7 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
           </execution>
         </executions>
       </plugin>
-      
+
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <executions>
@@ -234,7 +234,7 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
           </execution>
         </executions>
       </plugin>
-      
+
     </plugins>
 
   </build>
@@ -242,8 +242,8 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
   <profiles>
     <profile>
       <id>muleServer</id>
-      <!-- Start mule server with the command 
-             mvn -PmuleServer or 
+      <!-- Start mule server with the command
+             mvn -PmuleServer or
              mvn -PmuleServer -Dexec.args="${artifaceId}-config.xml"
            if you want to override the default config-file -->
       <build>
