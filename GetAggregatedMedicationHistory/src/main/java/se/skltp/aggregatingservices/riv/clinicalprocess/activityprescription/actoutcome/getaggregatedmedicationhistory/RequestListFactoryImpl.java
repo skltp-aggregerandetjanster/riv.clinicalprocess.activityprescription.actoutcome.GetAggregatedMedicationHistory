@@ -22,7 +22,9 @@ import se.skltp.agp.service.api.RequestListFactory;
 public class RequestListFactoryImpl implements RequestListFactory {
 
     private static final Logger log = LoggerFactory.getLogger(RequestListFactoryImpl.class);
-    private static final ThreadSafeSimpleDateFormat df = new ThreadSafeSimpleDateFormat("YYYYMMDDhhmmss");
+    private static final ThreadSafeSimpleDateFormat requestDateFormat = new ThreadSafeSimpleDateFormat("yyyyMMdd");
+    private static final ThreadSafeSimpleDateFormat mostRecentContentDateFormat = new ThreadSafeSimpleDateFormat("yyyyMMddhhmmss");
+    
 
     /**
      * Filtrera svarsposter från i EI (ei-engagement) baserat parametrar i GetAggregatedMedicationHistory requestet (req). 
@@ -45,7 +47,20 @@ public class RequestListFactoryImpl implements RequestListFactory {
     public List<Object[]> createRequestList(QueryObject qo, FindContentResponseType src) {
 
         GetMedicationHistoryType originalRequest = (GetMedicationHistoryType) qo.getExtraArg();
+        
+        Date reqFrom = parseRequestDatePeriod(
+                (originalRequest.getDatePeriod() == null
+                ||
+                originalRequest.getDatePeriod().getStart() == null) 
+                ? 
+                null : originalRequest.getDatePeriod().getStart());
 
+        Date reqTo = parseRequestDatePeriod(
+                (originalRequest.getDatePeriod() == null 
+                ||
+                originalRequest.getDatePeriod().getEnd() == null)
+                ? null : originalRequest.getDatePeriod().getEnd());
+        
         final String reqCareUnit = originalRequest.getSourceSystemHSAId();
 
         FindContentResponseType eiResp = (FindContentResponseType) src;
@@ -56,10 +71,13 @@ public class RequestListFactoryImpl implements RequestListFactory {
         Map<String, List<String>> sourceSystem_pdlUnitList_map = new HashMap<String, List<String>>();
 
         for (EngagementType inEng : inEngagements) {
-            if (isPartOf(reqCareUnit, inEng.getLogicalAddress())) {
-                // Add pdlUnit to source system
-                log.debug("Add SS: {} for PDL unit: {}", inEng.getSourceSystem(), inEng.getLogicalAddress());
-                addPdlUnitToSourceSystem(sourceSystem_pdlUnitList_map, inEng.getSourceSystem(), inEng.getLogicalAddress());
+            // Filter
+            if (mostRecentContentIsBetween(reqFrom, reqTo, inEng.getMostRecentContent())) {
+                if (isPartOf(reqCareUnit, inEng.getLogicalAddress())) {
+                    // Add pdlUnit to source system
+                    log.debug("Add SS: {} for PDL unit: {}", inEng.getSourceSystem(), inEng.getLogicalAddress());
+                    addPdlUnitToSourceSystem(sourceSystem_pdlUnitList_map, inEng.getSourceSystem(), inEng.getLogicalAddress());
+                }
             }
         }
 
@@ -84,29 +102,36 @@ public class RequestListFactoryImpl implements RequestListFactory {
         return reqList;
     }
 
-    Date parseTs(String ts) {
+    Date parseRequestDatePeriod(String ts) {
         try {
             if (ts == null || ts.length() == 0) {
                 return null;
             } else {
-                return df.parse(ts);
+                return requestDateFormat.parse(ts);
             }
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
     }
 
-    boolean isBetween(Date from, Date to, String tsStr) {
+    boolean mostRecentContentIsBetween(Date fromRequestDate, Date toRequestDate, String mostRecentContentTimestamp) {
+        if (mostRecentContentTimestamp == null) {
+            log.error("mostRecentContent - timestamp string is null");
+            return true;
+        }
+        if (StringUtils.isBlank(mostRecentContentTimestamp)) {
+            log.error("mostRecentContent - timestamp string is blank");
+            return true;
+        }
+        log.debug("Is {} between {} and ", new Object[] {mostRecentContentTimestamp, fromRequestDate, toRequestDate});
         try {
-            if (log.isDebugEnabled()) {
-                log.debug("Is {} between {} and ", new Object[] { tsStr, from, to });
+            Date mostRecentContent = mostRecentContentDateFormat.parse(mostRecentContentTimestamp);
+            if (fromRequestDate != null && fromRequestDate.after(mostRecentContent)) {
+                return false;
             }
-
-            Date ts = df.parse(tsStr);
-            if (from != null && from.after(ts))
+            if (toRequestDate != null && toRequestDate.before(mostRecentContent)) {
                 return false;
-            if (to != null && to.before(ts))
-                return false;
+            }
             return true;
         } catch (ParseException e) {
             throw new RuntimeException(e);
@@ -120,14 +145,14 @@ public class RequestListFactoryImpl implements RequestListFactory {
         return careUnitIdList.contains(careUnit);
     }
 
-    boolean isPartOf(String careUnitId, String careUnit) {
+    private boolean isPartOf(String careUnitId, String careUnit) {
         log.debug("Check careunit {} equals expected {}", careUnitId, careUnit);
         if (StringUtils.isBlank(careUnitId))
             return true;
         return careUnitId.equals(careUnit);
     }
 
-    void addPdlUnitToSourceSystem(Map<String, List<String>> sourceSystem_pdlUnitList_map, String sourceSystem, String pdlUnitId) {
+    private void addPdlUnitToSourceSystem(Map<String, List<String>> sourceSystem_pdlUnitList_map, String sourceSystem, String pdlUnitId) {
         List<String> careUnitList = sourceSystem_pdlUnitList_map.get(sourceSystem);
         if (careUnitList == null) {
             careUnitList = new ArrayList<String>();
