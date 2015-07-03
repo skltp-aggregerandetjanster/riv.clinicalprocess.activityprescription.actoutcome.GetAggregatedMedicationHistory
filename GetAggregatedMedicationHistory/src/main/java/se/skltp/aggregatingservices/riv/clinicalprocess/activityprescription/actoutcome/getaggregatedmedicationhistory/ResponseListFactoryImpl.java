@@ -29,6 +29,7 @@ public class ResponseListFactoryImpl implements ResponseListFactory {
         }
         aggregatedResponse.setResult(new ResultType());
         aggregatedResponse.getResult().setResultCode(ResultCodeEnum.INFO);
+        aggregatedResponse.getResult().setLogId("NA");
 
         log.info("Returning {} aggregated medication history for subject of care id {}", 
                 aggregatedResponse.getMedicationMedicalRecord().size(),
