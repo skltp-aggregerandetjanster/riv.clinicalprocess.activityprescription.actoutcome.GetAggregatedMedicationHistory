@@ -12,7 +12,7 @@ mvn gatling:execute -PPingForConfiguration -DbaseUrl=http://ine-sit-app03.sth.ba
 # WarmUp - default:33.33.33.33:8081 (http)
 mvn gatling:execute -PWarmUp
 mvn gatling:execute -PWarmUp -DbaseUrl=http://ine-dit-app02.sth.basefarm.net:9013/GetAggregatedMedicationHistory/service/v2
-mvn gatling:execute -PWarmUp -DbaseUrl=http://ine-sit-app03.sth.basefarm.net:9013/GetAggregatedmedicationhistory/service/v2
+mvn gatling:execute -PWarmUp -DbaseUrl=http://ine-sit-app03.sth.basefarm.net:9013/GetAggregatedMedicationHistory/service/v2
 
 # Smoke - default:ine-sit-app03 (http)
 mvn gatling:execute -PSmoke
