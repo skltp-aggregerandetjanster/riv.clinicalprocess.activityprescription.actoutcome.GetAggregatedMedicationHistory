@@ -3,10 +3,6 @@ package se.skltp.aggregatingservices.riv.clinicalprocess.activityprescription.ac
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.UUID;
 
@@ -61,48 +57,4 @@ public class RequestListFactoryTest {
         assertFalse(validRequestList.isEmpty());
         assertTrue(invalidRequestList.isEmpty());
     }
-
-    @Test
-    public void isPartOf() {
-        List<String> careUnitIdList = Arrays.asList("UNIT1", "UNIT2");
-        assertTrue(new RequestListFactoryImpl().isPartOf(careUnitIdList, "UNIT2"));
-        assertTrue(new RequestListFactoryImpl().isPartOf(careUnitIdList, "UNIT1"));
-
-        careUnitIdList = new ArrayList<String>();
-        assertTrue(new RequestListFactoryImpl().isPartOf(careUnitIdList, "UNIT1"));
-
-        careUnitIdList = null;
-        assertTrue(new RequestListFactoryImpl().isPartOf(careUnitIdList, "UNIT1"));
-    }
-
-    @Test
-    public void isNotPartOf() {
-        List<String> careUnitIdList = Arrays.asList("UNIT1", "UNIT2");
-        assertFalse(new RequestListFactoryImpl().isPartOf(careUnitIdList, "UNIT3"));
-        assertFalse(new RequestListFactoryImpl().isPartOf(careUnitIdList, null));
-    }
-
-    
-    @Test
-    public void mostRecentContentIsBetween() {
-        RequestListFactoryImpl objectUnderTest = new RequestListFactoryImpl();
- 
-        assertTrue(objectUnderTest.mostRecentContentIsBetween(new GregorianCalendar(2015, Calendar.FEBRUARY, 11).getTime(), 
-                                                              new GregorianCalendar(2016, Calendar.FEBRUARY, 11).getTime(), 
-                                                                                   "20150402085945"));
-
-        assertTrue(objectUnderTest.mostRecentContentIsBetween(new GregorianCalendar(2015, Calendar.APRIL, 2).getTime(), 
-                                                              new GregorianCalendar(2015, Calendar.APRIL, 3).getTime(), 
-                                                                                   "20150402085945"));
-        
-        assertFalse(objectUnderTest.mostRecentContentIsBetween(new GregorianCalendar(2015, Calendar.FEBRUARY, 11).getTime(), 
-                                                               new GregorianCalendar(2015, Calendar.APRIL,     2).getTime(), 
-                                                                                    "20150402085945"));
-        
-        assertFalse(objectUnderTest.mostRecentContentIsBetween(new GregorianCalendar(2015, Calendar.APRIL, 3).getTime(), 
-                                                               new GregorianCalendar(2015, Calendar.APRIL, 3).getTime(), 
-                                                                                    "20150402085945"));
-    
-    }
-    
 }

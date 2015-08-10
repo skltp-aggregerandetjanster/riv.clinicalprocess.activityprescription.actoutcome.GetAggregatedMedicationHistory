@@ -44,40 +44,24 @@ public class RequestListFactoryImpl implements RequestListFactory {
      * 4. fromDate = orginal-request.fromDate 
      * 5. toDate = orginal-request.toDate
      */
-    public List<Object[]> createRequestList(QueryObject qo, FindContentResponseType src) {
+    public List<Object[]> createRequestList(QueryObject qo, FindContentResponseType findContentResponse) {
 
-        GetMedicationHistoryType originalRequest = (GetMedicationHistoryType) qo.getExtraArg();
+        GetMedicationHistoryType request = (GetMedicationHistoryType) qo.getExtraArg();
         
-        Date reqFrom = parseRequestDatePeriod(
-                (originalRequest.getDatePeriod() == null
-                ||
-                originalRequest.getDatePeriod().getStart() == null) 
-                ? 
-                null : originalRequest.getDatePeriod().getStart());
+        final String sourceSystemHsaId = request.getSourceSystemHSAId();
 
-        Date reqTo = parseRequestDatePeriod(
-                (originalRequest.getDatePeriod() == null 
-                ||
-                originalRequest.getDatePeriod().getEnd() == null)
-                ? null : originalRequest.getDatePeriod().getEnd());
-        
-        final String reqCareUnit = originalRequest.getSourceSystemHSAId();
-
-        FindContentResponseType eiResp = (FindContentResponseType) src;
+        FindContentResponseType eiResp = (FindContentResponseType) findContentResponse;
         List<EngagementType> inEngagements = eiResp.getEngagement();
 
         log.info("Got {} hits in the engagement index", inEngagements.size());
 
         Map<String, List<String>> sourceSystem_pdlUnitList_map = new HashMap<String, List<String>>();
 
-        for (EngagementType inEng : inEngagements) {
-            // Filter
-            if (mostRecentContentIsBetween(reqFrom, reqTo, inEng.getMostRecentContent())) {
-                if (isPartOf(reqCareUnit, inEng.getLogicalAddress())) {
-                    // Add pdlUnit to source system
-                    log.debug("Add SS: {} for PDL unit: {}", inEng.getSourceSystem(), inEng.getLogicalAddress());
-                    addPdlUnitToSourceSystem(sourceSystem_pdlUnitList_map, inEng.getSourceSystem(), inEng.getLogicalAddress());
-                }
+        for (EngagementType engagement : inEngagements) {
+            if (isPartOf(sourceSystemHsaId, engagement.getLogicalAddress())) {
+                // Add pdlUnit to source system
+                log.debug("Add source system: {} for producer: {}", engagement.getSourceSystem(), engagement.getLogicalAddress());
+                addPdlUnitToSourceSystem(sourceSystem_pdlUnitList_map, engagement.getSourceSystem(), engagement.getLogicalAddress());
             }
         }
 
@@ -88,61 +72,14 @@ public class RequestListFactoryImpl implements RequestListFactory {
 
         for (Entry<String, List<String>> entry : sourceSystem_pdlUnitList_map.entrySet()) {
             String sourceSystem = entry.getKey();
-            if (log.isInfoEnabled())
-                log.info("Calling source system using logical address {} for subject of care id {}", 
-                          sourceSystem, originalRequest.getPatientId().getId());
-            final GetMedicationHistoryType request = originalRequest;
+            log.info("Calling source system using logical address {} for subject of care id {}", sourceSystem, request.getPatientId().getId());
             Object[] reqArr = new Object[] { sourceSystem, request };
-
             reqList.add(reqArr);
         }
 
         log.debug("Transformed payload: {}", reqList);
 
         return reqList;
-    }
-
-    Date parseRequestDatePeriod(String ts) {
-        try {
-            if (ts == null || ts.length() == 0) {
-                return null;
-            } else {
-                return requestDateFormat.parse(ts);
-            }
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    boolean mostRecentContentIsBetween(Date fromRequestDate, Date toRequestDate, String mostRecentContentTimestamp) {
-        if (mostRecentContentTimestamp == null) {
-            log.error("mostRecentContent - timestamp string is null");
-            return true;
-        }
-        if (StringUtils.isBlank(mostRecentContentTimestamp)) {
-            log.error("mostRecentContent - timestamp string is blank");
-            return true;
-        }
-        log.debug("Is {} between {} and ", new Object[] {mostRecentContentTimestamp, fromRequestDate, toRequestDate});
-        try {
-            Date mostRecentContent = mostRecentContentDateFormat.parse(mostRecentContentTimestamp);
-            if (fromRequestDate != null && fromRequestDate.after(mostRecentContent)) {
-                return false;
-            }
-            if (toRequestDate != null && toRequestDate.before(mostRecentContent)) {
-                return false;
-            }
-            return true;
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    boolean isPartOf(List<String> careUnitIdList, String careUnit) {
-        log.debug("Check presence of {} in {}", careUnit, careUnitIdList);
-        if (careUnitIdList == null || careUnitIdList.size() == 0)
-            return true;
-        return careUnitIdList.contains(careUnit);
     }
 
     private boolean isPartOf(String careUnitId, String careUnit) {
