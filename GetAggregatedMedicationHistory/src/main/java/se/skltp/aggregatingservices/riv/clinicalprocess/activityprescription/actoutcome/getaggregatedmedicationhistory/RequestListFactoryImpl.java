@@ -48,19 +48,6 @@ public class RequestListFactoryImpl implements RequestListFactory {
 
         GetMedicationHistoryType request = (GetMedicationHistoryType) qo.getExtraArg();
         
-        Date reqFrom = parseRequestDatePeriod(
-                (request.getDatePeriod() == null
-                ||
-                request.getDatePeriod().getStart() == null) 
-                ? 
-                null : request.getDatePeriod().getStart());
-
-        Date reqTo = parseRequestDatePeriod(
-                (request.getDatePeriod() == null 
-                ||
-                request.getDatePeriod().getEnd() == null)
-                ? null : request.getDatePeriod().getEnd());
-        
         final String sourceSystemHsaId = request.getSourceSystemHSAId();
 
         FindContentResponseType eiResp = (FindContentResponseType) findContentResponse;
@@ -71,13 +58,10 @@ public class RequestListFactoryImpl implements RequestListFactory {
         Map<String, List<String>> sourceSystem_pdlUnitList_map = new HashMap<String, List<String>>();
 
         for (EngagementType engagement : inEngagements) {
-            // Filter
-            if (mostRecentContentIsBetween(reqFrom, reqTo, engagement.getMostRecentContent())) {
-                if (isPartOf(sourceSystemHsaId, engagement.getLogicalAddress())) {
-                    // Add pdlUnit to source system
-                    log.debug("Add source system: {} for producer: {}", engagement.getSourceSystem(), engagement.getLogicalAddress());
-                    addPdlUnitToSourceSystem(sourceSystem_pdlUnitList_map, engagement.getSourceSystem(), engagement.getLogicalAddress());
-                }
+            if (isPartOf(sourceSystemHsaId, engagement.getLogicalAddress())) {
+                // Add pdlUnit to source system
+                log.debug("Add source system: {} for producer: {}", engagement.getSourceSystem(), engagement.getLogicalAddress());
+                addPdlUnitToSourceSystem(sourceSystem_pdlUnitList_map, engagement.getSourceSystem(), engagement.getLogicalAddress());
             }
         }
 
@@ -96,42 +80,6 @@ public class RequestListFactoryImpl implements RequestListFactory {
         log.debug("Transformed payload: {}", reqList);
 
         return reqList;
-    }
-
-    private Date parseRequestDatePeriod(String ts) {
-        try {
-            if (ts == null || ts.length() == 0) {
-                return null;
-            } else {
-                return requestDateFormat.parse(ts);
-            }
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    boolean mostRecentContentIsBetween(Date fromRequestDate, Date toRequestDate, String mostRecentContentTimestamp) {
-        if (mostRecentContentTimestamp == null) {
-            log.error("mostRecentContent - timestamp string is null");
-            return true;
-        }
-        if (StringUtils.isBlank(mostRecentContentTimestamp)) {
-            log.error("mostRecentContent - timestamp string is blank");
-            return true;
-        }
-        log.debug("Is {} between {} and ", new Object[] {mostRecentContentTimestamp, fromRequestDate, toRequestDate});
-        try {
-            Date mostRecentContent = mostRecentContentDateFormat.parse(mostRecentContentTimestamp);
-            if (fromRequestDate != null && fromRequestDate.after(mostRecentContent)) {
-                return false;
-            }
-            if (toRequestDate != null && toRequestDate.before(mostRecentContent)) {
-                return false;
-            }
-            return true;
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     private boolean isPartOf(String careUnitId, String careUnit) {
