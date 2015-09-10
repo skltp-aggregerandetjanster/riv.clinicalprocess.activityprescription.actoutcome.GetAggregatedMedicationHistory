@@ -25,7 +25,7 @@ public class GetAggregatedMedicationHistoryTestConsumer extends AbstractTestCons
         String personnummer = TEST_RR_ID_ONE_HIT;
 
         GetAggregatedMedicationHistoryTestConsumer consumer 
-          = new GetAggregatedMedicationHistoryTestConsumer(serviceAddress, SAMPLE_SENDER_ID, SAMPLE_ORIGINAL_CONSUMER_HSAID);
+          = new GetAggregatedMedicationHistoryTestConsumer(serviceAddress, SAMPLE_SENDER_ID, SAMPLE_ORIGINAL_CONSUMER_HSAID, SAMPLE_CORRELATION_ID);
         Holder<GetMedicationHistoryResponseType> responseHolder = new Holder<GetMedicationHistoryResponseType>();
         Holder<ProcessingStatusType> processingStatusHolder = new Holder<ProcessingStatusType>();
 
@@ -34,9 +34,9 @@ public class GetAggregatedMedicationHistoryTestConsumer extends AbstractTestCons
         log.info("Returned #medical records = " + responseHolder.value.getMedicationMedicalRecord().size());
     }
 
-    public GetAggregatedMedicationHistoryTestConsumer(String serviceAddress, String senderId, String originalConsumerHsaId) {
+    public GetAggregatedMedicationHistoryTestConsumer(String serviceAddress, String senderId, String originalConsumerHsaId, String correlationId) {
         // Setup a web service proxy for communication using HTTPS with Mutual Authentication
-        super(GetMedicationHistoryResponderInterface.class, serviceAddress, senderId, originalConsumerHsaId);
+        super(GetMedicationHistoryResponderInterface.class, serviceAddress, senderId, originalConsumerHsaId, correlationId);
     }
 
     public void callService(String logicalAddress, 
