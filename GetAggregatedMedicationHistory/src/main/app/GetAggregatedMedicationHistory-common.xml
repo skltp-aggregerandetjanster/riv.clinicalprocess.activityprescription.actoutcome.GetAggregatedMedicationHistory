@@ -37,6 +37,7 @@
 	    <spring:property name="locations">
 	      <spring:list>
 	        <spring:value>classpath:GetAggregatedMedicationHistory-config.properties</spring:value>
+	        <spring:value>classpath:agp-config-override.properties</spring:value>
 	        <spring:value>classpath:GetAggregatedMedicationHistory-config-override.properties</spring:value>
 	      </spring:list>
 	    </spring:property>

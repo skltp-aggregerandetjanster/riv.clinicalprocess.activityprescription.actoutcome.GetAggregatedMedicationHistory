@@ -21,6 +21,7 @@
 	    <spring:property name="locations">
 	      <spring:list>
 	        <spring:value>classpath:GetAggregatedMedicationHistory-config.properties</spring:value>
+	        <spring:value>classpath:agp-config-override.properties</spring:value>
 	        <spring:value>classpath:GetAggregatedMedicationHistory-config-override.properties</spring:value>
 	      </spring:list>
 	    </spring:property>
@@ -28,6 +29,7 @@
       
       <!-- Load all teststub services -->
       <spring:import resource="classpath:teststub-services/*-teststub-service.xml"/>
+      <spring:import resource="classpath:teststub-non-default-services/tak-teststub-service.xml" />
             
     </spring:beans>
 
