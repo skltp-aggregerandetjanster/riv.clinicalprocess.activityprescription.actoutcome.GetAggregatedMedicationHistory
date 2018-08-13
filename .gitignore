@@ -8,3 +8,7 @@ target/
 
 # MuleStudio
 .studio
+
+# intellij
+.idea
+*.iml
