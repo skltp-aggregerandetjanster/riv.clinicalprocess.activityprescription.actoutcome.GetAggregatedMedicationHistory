@@ -48,11 +48,11 @@ public class ServiceTestDataGenerator extends TestDataGenerator {
   }
 
   public Object createRequest(String patientId, String sourceSystemHSAId) {
-    GetMedicationHistoryType type = new GetMedicationHistoryType();
+    GetMedicationHistoryType request = new GetMedicationHistoryType();
     PersonIdType person = new PersonIdType();
     person.setId(patientId);
-    type.setPatientId(person);
-    type.setSourceSystemHSAId(sourceSystemHSAId);
-    return type;
+    request.setPatientId(person);
+    request.setSourceSystemHSAId(sourceSystemHSAId);
+    return request;
   }
 }

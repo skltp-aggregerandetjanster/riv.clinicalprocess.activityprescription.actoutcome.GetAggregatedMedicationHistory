@@ -1,6 +1,5 @@
 package se.skltp.aggregatingservices.riv.clinicalprocess.activityprescription.actoutcome.getaggregatedmedicationhistory;
 
-import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import riv.clinicalprocess.activityprescription.actoutcome.getmedicationhistoryresponder.v2.GetMedicationHistoryResponseType;
@@ -19,10 +18,4 @@ public class GAMHCreateFindContentTest extends CreateFindContentTest {
     super(testDataGenerator, agpServiceFactory, configuration);
   }
 
-  @BeforeClass
-  public static void before() {
-    configuration = new GAMHAgpServiceConfiguration();
-    agpServiceFactory = new GAMHAgpServiceFactoryImpl();
-    agpServiceFactory.setAgpServiceConfiguration(configuration);
-  }
 }

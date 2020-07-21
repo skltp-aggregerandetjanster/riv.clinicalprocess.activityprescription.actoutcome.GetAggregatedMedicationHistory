@@ -39,6 +39,4 @@ public static final String SCHEMA_PATH = "/schemas/clinicalprocess.activitypresc
     // Set service factory
     setServiceFactoryClass(GAMHAgpServiceFactoryImpl.class.getName());
     }
-
-
 }
