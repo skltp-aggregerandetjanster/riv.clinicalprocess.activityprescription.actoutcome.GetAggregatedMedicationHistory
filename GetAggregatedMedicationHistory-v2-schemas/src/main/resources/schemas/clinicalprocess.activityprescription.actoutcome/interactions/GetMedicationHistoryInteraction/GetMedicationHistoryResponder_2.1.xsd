@@ -21,8 +21,9 @@
   xmlns:tns="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2"
   xmlns:codes="urn:riv:clinicalprocess:activityprescription:actoutcome:enums:2"
   xmlns:core="urn:riv:clinicalprocess:activityprescription:actoutcome:2"
+  xmlns:m1="urn:riv:clinicalprocess:activityprescription:actoutcome:2.1"
   targetNamespace="urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2"
-  elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0">
+  elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
   <xs:import
     schemaLocation="../../core_components/clinicalprocess_activityprescription_actoutcome_2.0.xsd"
     namespace="urn:riv:clinicalprocess:activityprescription:actoutcome:2"/>

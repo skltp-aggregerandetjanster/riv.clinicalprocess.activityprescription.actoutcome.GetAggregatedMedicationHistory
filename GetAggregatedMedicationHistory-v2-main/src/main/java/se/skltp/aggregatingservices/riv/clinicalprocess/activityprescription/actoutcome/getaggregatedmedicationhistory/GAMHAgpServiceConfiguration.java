@@ -11,7 +11,7 @@ import riv.clinicalprocess.activityprescription.actoutcome.getmedicationhistory.
 @ConfigurationProperties(prefix = "getaggregatedmedicationhistory.v2")
 public class GAMHAgpServiceConfiguration extends se.skltp.aggregatingservices.configuration.AgpServiceConfiguration {
 
-public static final String SCHEMA_PATH = "/schemas/clinicalprocess.activityprescription.actoutcome/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryInteraction_2.0_RIVTABP21.wsdl";
+public static final String SCHEMA_PATH = "/schemas/clinicalprocess.activityprescription.actoutcome/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryInteraction_2.1_RIVTABP21.wsdl";
 
   public GAMHAgpServiceConfiguration() {
 

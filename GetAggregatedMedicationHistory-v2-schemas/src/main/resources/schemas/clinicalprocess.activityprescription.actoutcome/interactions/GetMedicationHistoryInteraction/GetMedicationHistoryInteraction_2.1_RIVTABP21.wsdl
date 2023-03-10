@@ -23,21 +23,19 @@
   xmlns:tns='urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21'
   targetNamespace='urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21'
   xmlns:itr='urn:riv:itintegration:registry:1'>
-  <xs:annotation>
-    <xs:documentation>
+    <wsdl:documentation>
 			 Tjänsteinteraktionens namn: GetMedicationHistoryInteraction
 			 Beskrivning: 
-			   Get medication history for a patient 
+			   Returnerar ordinerade, förskrivna och/eller administrerade läkemedel för en patient.
 			 Revisioner: 
-			 Tjänstedomän: activityprescription:actoutcome
+			 Tjänstedomän: clinicalprocess:activityprescription:actoutcome
 			 Tjänsteinteraktionstyp: Fråga-Svar
 			 WS-profil: RIVTABP21
 			 Förvaltas av: Inera
-			 </xs:documentation>
-  </xs:annotation>
+			 </wsdl:documentation>
   <wsdl:types>
     <xs:schema targetNamespace='urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistory:2:rivtabp21'>
-      <xs:import schemaLocation='GetMedicationHistoryResponder_2.0.xsd' namespace='urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2' />
+      <xs:import schemaLocation='GetMedicationHistoryResponder_2.1.xsd' namespace='urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2' />
       <xs:import schemaLocation='../../core_components/itintegration_registry_1.0.xsd' namespace='urn:riv:itintegration:registry:1' />
     </xs:schema>
   </wsdl:types>

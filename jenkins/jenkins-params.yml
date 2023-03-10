@@ -1,0 +1,1 @@
+archive-artifacts: '*-main/target/*-all.jar'

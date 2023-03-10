@@ -36,7 +36,7 @@
               <wsdlOptions>
                 <wsdloption>
                   <wsdl>
-                    ${schema.path}/clinicalprocess.activityprescription.actoutcome/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryInteraction_2.0_RIVTABP21.wsdl
+                    ${schema.path}/clinicalprocess.activityprescription.actoutcome/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryInteraction_2.1_RIVTABP21.wsdl
                   </wsdl>
                   <extraargs>
                     <extraarg>-validate</extraarg>
