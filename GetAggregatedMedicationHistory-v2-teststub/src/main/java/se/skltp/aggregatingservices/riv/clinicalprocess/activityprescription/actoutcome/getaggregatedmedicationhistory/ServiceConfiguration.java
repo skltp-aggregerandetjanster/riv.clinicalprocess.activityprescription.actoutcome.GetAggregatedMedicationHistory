@@ -12,12 +12,12 @@ import se.skltp.aggregatingservices.config.TestProducerConfiguration;
 @ConfigurationProperties(prefix="getaggregatedmedicationhistory.v2.teststub")
 public class ServiceConfiguration extends TestProducerConfiguration {
 
-  public static final String SCHEMA_PATH = "/schemas/clinicalprocess.activityprescription.actoutcome/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryInteraction_2.0_RIVTABP21.wsdl";
+  public static final String SCHEMA_PATH = "/schemas/clinicalprocess.activityprescription.actoutcome/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryInteraction_2.1_RIVTABP21.wsdl";
 
   public ServiceConfiguration() {
     setProducerAddress("http://localhost:8083/vp");
     setServiceClass(GetMedicationHistoryResponderInterface.class.getName());
-    setServiceNamespace("urn:riv:clinicalprocess:activityprescription:actoutcome:GetAggregatedMedicationHistory:2");
+    setServiceNamespace("urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2");
     setPortName(GetMedicationHistoryResponderService.GetMedicationHistoryResponderPort.toString());
     setWsdlPath(SCHEMA_PATH);
     setTestDataGeneratorClass(ServiceTestDataGenerator.class.getName());
